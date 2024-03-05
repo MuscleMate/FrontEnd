@@ -20,6 +20,15 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            viewBinding {
+                enabled true
+            }
+            buildFeatures{
+                viewBinding {
+                    viewBinding true
+                }
+            }
+
         }
     }
     compileOptions {
@@ -29,7 +38,6 @@ android {
 }
 
 dependencies {
-
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
