@@ -1,5 +1,6 @@
 package com.example.musclematefront;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         binding.logInButton.setOnClickListener(view -> {
             Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, TellMoreActivity.class);
+            startActivity(intent);
         });
 
         binding.forgotPassword.setOnClickListener(view -> {

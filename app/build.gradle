@@ -45,4 +45,5 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    implementation 'io.github.ShawnLin013:number-picker:2.4.13'
 }
