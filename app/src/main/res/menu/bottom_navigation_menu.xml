@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_notifications"
+        android:icon="@drawable/home"
+        android:title="@string/notifications" />
+    <item
+        android:id="@+id/action_workouts"
+        android:icon="@drawable/workouts"
+        android:title="@string/workouts" />
+    <item
+        android:id="@+id/action_add"
+        android:icon="@drawable/add"
+        android:title="@string/add" />
+    <item
+        android:id="@+id/action_tournaments"
+        android:icon="@drawable/tournaments"
+        android:title="@string/tournaments" />
+    <item
+        android:id="@+id/action_profile"
+        android:icon="@drawable/profile"
+        android:title="@string/profile" />
+</menu>

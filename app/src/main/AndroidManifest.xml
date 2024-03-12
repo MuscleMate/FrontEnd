@@ -25,6 +25,18 @@
             android:name=".TellMoreActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".ChooseGoalActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".WorkoutsActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

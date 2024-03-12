@@ -1,5 +1,6 @@
 package com.example.musclematefront;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -16,7 +17,7 @@ public class TellMoreActivity extends AppCompatActivity {
     ActivityTellMoreBinding binding;
     Integer day=1;
     String month="Jan";
-    Integer year=2000;
+    Integer year=1970;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +28,17 @@ public class TellMoreActivity extends AppCompatActivity {
         hideNumberPickers();
         setupNumberPickers();
         setupEditTexts();
+        setupButton();
+    }
+
+    private void setupButton() {
+        binding.buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TellMoreActivity.this, ChooseGoalActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setupEditTexts() {
