@@ -8,6 +8,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.musclematefront.databinding.ActivityMainBinding;
+import com.example.musclematefront.models.Tournament;
+import com.example.musclematefront.parsers.TournamentParser;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -21,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setupButtons();
         //hide password confirm
         binding.editTextPassword2.setVisibility(View.GONE);
+
     }
     private void setupButtons(){
         binding.logInChangeButton.setOnClickListener(view -> {
@@ -35,9 +45,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.logInButton.setOnClickListener(view -> {
-            Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, TellMoreActivity.class);
-            startActivity(intent);
+            //Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
+            String url = "http://192.168.1.13:4000/noauth/tournaments/";
+            ServerRequestHandler requestHandler = new ServerRequestHandler(new ServerRequestHandler.OnServerResponseListener() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    TournamentParser tournamentParser = new TournamentParser();
+                    List<Tournament> tournaments = tournamentParser.parseTournaments(response);
+
+                    for (Tournament tournament : tournaments) {
+                        System.out.println(tournament.getName());
+                    }
+                }
+
+                @Override
+                public void onError(String error) {
+                    Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
+                }
+            });
+            requestHandler.executeWithThreadPool(url);
+
+            //Intent intent = new Intent(MainActivity.this, TellMoreActivity.class);
+           // startActivity(intent);
         });
 
         binding.forgotPassword.setOnClickListener(view -> {
