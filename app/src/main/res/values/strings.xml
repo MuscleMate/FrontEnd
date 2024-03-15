@@ -2,12 +2,12 @@
     <string name="app_name">MuscleMate</string>
     <!--login-->
     <string name="forgot_password">Forgot your password?</string>
-    <string name="log_in">Log in</string>
-    <string name="sign_up">Sign up</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
     <string name="name">Name</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="loginUsing">Log in Using:</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="loginUsing">Log In Using:</string>
     <!--Tell more-->
     <string name="tellUsMore">Tell us more\nabout yourself</string>
     <string name="first_name">First Name</string>

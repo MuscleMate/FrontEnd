@@ -2,6 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red">#FFFF0000</color>
-    <color name="light_purple">#FFCF9FFF</color>
+    <color name="purple_inactive">#FFB6B2ED</color>  // login, next disabled buttons
+    <color name="light_purple">#FF707EFF</color>     // logo, underline
+    <color name="navy_blue">#FF22007C</color>        // logo, strokes
+    <color name="gray">#FF808080</color>             // hint text
+    <color name="blue_gray">#FF8B8CB2</color>        // strokes
+    <color name="blue">#FF707EFF</color>             // login, next enabled buttons
 </resources>
