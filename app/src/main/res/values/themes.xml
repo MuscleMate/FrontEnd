@@ -15,6 +15,7 @@
     <style name="LoginButton" parent="@android:style/Widget.Button">
         <item name="android:background">@drawable/enabled_state_bg</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="TextStroke" parent="@android:style/Widget.EditText">

@@ -110,7 +110,6 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/lato"
         android:text="@string/log_in"
-        android:textSize="16sp"
         android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
