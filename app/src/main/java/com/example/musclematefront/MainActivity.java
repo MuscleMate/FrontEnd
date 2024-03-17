@@ -45,28 +45,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.logInButton.setOnClickListener(view -> {
-            //Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
-            String url = "http://192.168.1.13:4000/noauth/tournaments/";
-            ServerRequestHandler requestHandler = new ServerRequestHandler(new ServerRequestHandler.OnServerResponseListener() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    TournamentParser tournamentParser = new TournamentParser();
-                    List<Tournament> tournaments = tournamentParser.parseTournaments(response);
+            Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
+            //String url = "http://192.168.1.13:4000/noauth/tournaments/";
+            //ServerRequestHandler requestHandler = new ServerRequestHandler(new ServerRequestHandler.OnServerResponseListener() {
+            //    @Override
+            //    public void onResponse(JSONObject response) {
+            //        TournamentParser tournamentParser = new TournamentParser();
+            //        List<Tournament> tournaments = tournamentParser.parseTournaments(response);
+//
+            //        for (Tournament tournament : tournaments) {
+            //            System.out.println(tournament.getName());
+            //        }
+            //    }
+//
+            //    @Override
+            //    public void onError(String error) {
+            //        Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
+            //    }
+            //});
+            //requestHandler.executeWithThreadPool(url);
 
-                    for (Tournament tournament : tournaments) {
-                        System.out.println(tournament.getName());
-                    }
-                }
-
-                @Override
-                public void onError(String error) {
-                    Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
-                }
-            });
-            requestHandler.executeWithThreadPool(url);
-
-            //Intent intent = new Intent(MainActivity.this, TellMoreActivity.class);
-           // startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, TellMoreActivity.class);
+            startActivity(intent);
         });
 
         binding.forgotPassword.setOnClickListener(view -> {

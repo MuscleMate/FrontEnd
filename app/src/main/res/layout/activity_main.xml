@@ -110,7 +110,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/lato"
         android:text="@string/log_in"
-        android:enabled="false"
+        android:enabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword2" />
