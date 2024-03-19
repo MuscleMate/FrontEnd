@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,73 +23,49 @@
                 android:id="@+id/tellUsMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/lato_bold"
                 android:text="@string/tellUsMore"
+                android:textColor="@color/navy_blue"
+                android:textSize="32sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/firstName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/first_name"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tellUsMore" />
-
-            <TextView
-                android:id="@+id/lastName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/last_name"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/editLastName"
-                app:layout_constraintEnd_toEndOf="@+id/firstName"
-                app:layout_constraintStart_toStartOf="@+id/firstName"
-                app:layout_constraintTop_toBottomOf="@+id/editfirstName" />
-
-            <TextView
-                android:id="@+id/height"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/height"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/editHeight"
-                app:layout_constraintStart_toStartOf="@+id/lastName"
-                app:layout_constraintTop_toBottomOf="@+id/editLastName" />
 
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/numberPickerHeight"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="120dp"
+                app:np_dividerColor="@color/blue_gray"
+                app:np_dividerDistance="20dp"
+                app:np_dividerThickness="1dp"
+                app:np_textSize="14sp"
+                app:np_selectedTextSize="14sp"
+                app:np_typeface="@font/lato"
+                app:np_wheelItemCount="5"
+                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editHeight"
-                app:np_max="280"
+                app:np_max="220"
                 app:np_min="100"
                 app:np_value="170" />
 
-            <TextView
-                android:id="@+id/weight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="@string/weight"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/editWeight"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editWeight" />
 
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/numberPickerWeight"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="120dp"
+                app:np_dividerColor="@color/blue_gray"
+                app:np_dividerDistance="20dp"
+                app:np_dividerThickness="1dp"
+                app:np_textSize="14sp"
+                app:np_selectedTextSize="14sp"
+                app:np_typeface="@font/lato"
+                app:np_wheelItemCount="5"
+                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editWeight"
@@ -96,22 +73,18 @@
                 app:np_min="30"
                 app:np_value="60" />
 
-            <TextView
-                android:id="@+id/dateOfBirth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="@string/date_of_birth"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/editDateOfBirth"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editDateOfBirth" />
-
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/numberPickerMonth"
                 android:layout_width="125dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="120dp"
+                app:np_dividerColor="@color/blue_gray"
+                app:np_dividerDistance="20dp"
+                app:np_dividerThickness="1dp"
+                app:np_textSize="14sp"
+                app:np_selectedTextSize="14sp"
+                app:np_typeface="@font/lato"
+                app:np_wheelItemCount="5"
+                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editDateOfBirth"
@@ -122,8 +95,15 @@
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/numberPickerDay"
                 android:layout_width="125dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="120dp"
+                app:np_dividerColor="@color/blue_gray"
+                app:np_dividerDistance="20dp"
+                app:np_dividerThickness="1dp"
+                app:np_textSize="14sp"
+                app:np_selectedTextSize="14sp"
+                app:np_typeface="@font/lato"
+                app:np_wheelItemCount="5"
+                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toStartOf="@+id/numberPickerMonth"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editDateOfBirth"
@@ -134,8 +114,15 @@
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/numberPickerYear"
                 android:layout_width="125dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="120dp"
+                app:np_dividerColor="@color/blue_gray"
+                app:np_dividerDistance="20dp"
+                app:np_dividerThickness="1dp"
+                app:np_textSize="14sp"
+                app:np_selectedTextSize="14sp"
+                app:np_typeface="@font/lato"
+                app:np_wheelItemCount="5"
+                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/numberPickerMonth"
                 app:layout_constraintTop_toBottomOf="@+id/editDateOfBirth"
@@ -143,22 +130,18 @@
                 app:np_min="1900"
                 app:np_value="1970" />
 
-            <TextView
-                android:id="@+id/gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="@string/gender"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/editGender"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editGender" />
-
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/numberPickerGender"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="120dp"
+                app:np_dividerColor="@color/blue_gray"
+                app:np_dividerDistance="20dp"
+                app:np_dividerThickness="1dp"
+                app:np_textSize="14sp"
+                app:np_selectedTextSize="14sp"
+                app:np_typeface="@font/lato"
+                app:np_wheelItemCount="5"
+                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editGender"
@@ -167,20 +150,22 @@
                 app:np_value="1" />
 
             <Button
+                style="@style/LoginButton"
                 android:id="@+id/buttonNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/next"
+                android:enabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/numberPickerGender" />
 
             <ImageView
                 android:id="@+id/imageViewLogo"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="40dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -190,66 +175,76 @@
                 android:contentDescription="logo" />
 
             <EditText
+                style="@style/TellMoreInputStyle"
                 android:id="@+id/editfirstName"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginTop="48dp"
                 android:ems="10"
+                android:text="@string/first_name"
                 android:inputType="text"
-                app:layout_constraintBottom_toBottomOf="@+id/firstName"
+                android:autofillHints="name"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/firstName"
-                app:layout_constraintTop_toTopOf="@+id/firstName" />
+                app:layout_constraintTop_toBottomOf="@+id/tellUsMore" />
 
             <EditText
+                style="@style/TellMoreInputStyle"
                 android:id="@+id/editLastName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
                 android:ems="10"
+                android:text="@string/last_name"
                 android:inputType="text"
+                android:autofillHints="name"
                 app:layout_constraintEnd_toEndOf="@+id/editfirstName"
-                app:layout_constraintStart_toEndOf="@+id/lastName"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/editfirstName"
                 app:layout_constraintTop_toBottomOf="@+id/editfirstName" />
 
             <EditText
+                style="@style/TellMoreInputStyle"
                 android:id="@+id/editHeight"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:ems="10"
+                android:text="@string/height"
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="@+id/editLastName"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/editLastName"
                 app:layout_constraintTop_toBottomOf="@+id/editLastName" />
 
             <EditText
+                style="@style/TellMoreInputStyle"
                 android:id="@+id/editWeight"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:ems="10"
+                android:text="@string/weight"
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="@+id/editHeight"
                 app:layout_constraintStart_toStartOf="@+id/editHeight"
                 app:layout_constraintTop_toBottomOf="@+id/numberPickerHeight" />
 
             <EditText
+                style="@style/TellMoreInputStyle"
                 android:id="@+id/editDateOfBirth"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:ems="10"
+                android:text="@string/date_of_birth"
                 android:inputType="text"
+                android:autofillHints="date"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/editWeight"
                 app:layout_constraintTop_toBottomOf="@+id/numberPickerWeight" />
 
             <EditText
+                style="@style/TellMoreInputStyle"
                 android:id="@+id/editGender"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:ems="10"
+                android:text="@string/gender"
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/editWeight"
