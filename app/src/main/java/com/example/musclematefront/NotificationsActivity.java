@@ -14,7 +14,6 @@ public class NotificationsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         binding = ActivityNotificationsBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);

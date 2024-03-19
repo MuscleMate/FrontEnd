@@ -17,7 +17,6 @@ public class ChooseGoalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         binding = ActivityChooseGoalBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
