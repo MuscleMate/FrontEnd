@@ -9,4 +9,5 @@
     <color name="blue_gray">#FF8B8CB2</color>        // strokes
     <color name="blue">#FF707EFF</color>             // login, next enabled buttons
     <color name="pale_purple">#FFB6B2ED</color>      // underline
+    <color name="snow">#FFF2F3F9</color>             // background
 </resources>
