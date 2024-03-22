@@ -20,15 +20,11 @@
             android:layout_height="wrap_content">
 
             <TextView
+                style="@style/HeadingStyle"
                 android:id="@+id/tellUsMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:fontFamily="@font/lato_bold"
                 android:text="@string/tellUsMore"
-                android:textColor="@color/navy_blue"
-                android:textSize="32sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -150,10 +146,8 @@
                 app:np_value="1" />
 
             <Button
-                style="@style/LoginButton"
+                style="@style/PrimaryButtonStyle"
                 android:id="@+id/buttonNext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="@string/next"
                 android:enabled="false"
@@ -165,7 +159,7 @@
                 android:id="@+id/imageViewLogo"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginBottom="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

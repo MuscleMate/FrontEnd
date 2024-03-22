@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/snow" >
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/snow"
         android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -19,20 +21,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                style="@style/HeadingStyle"
                 android:id="@+id/chooseGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
                 android:text="@string/goal_choice"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewAbs"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
+                android:id="@+id/cardViewMaintenance"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="50dp"
+                app:cardBackgroundColor="@color/snow"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/chooseGoal">
@@ -48,13 +52,16 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/abs" />
+                        app:srcCompat="@drawable/flex" />
 
                     <TextView
                         android:id="@+id/abs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/abs"
+                        android:fontFamily="@font/lato"
+                        android:text="@string/maintenance"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -63,10 +70,14 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewWeightLoss"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toStartOf="@+id/cardViewAbs"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="20dp"
+                app:cardBackgroundColor="@color/snow"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/cardViewMaintenance"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/chooseGoal">
 
@@ -87,7 +98,10 @@
                         android:id="@+id/weightLoss"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
                         android:text="@string/weight_loss"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -95,12 +109,16 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewUpperBody"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
+                android:id="@+id/cardViewMuscleGain"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="20dp"
+                app:cardBackgroundColor="@color/snow"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/cardViewAbs"
+                app:layout_constraintStart_toEndOf="@+id/cardViewMaintenance"
                 app:layout_constraintTop_toBottomOf="@+id/chooseGoal">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -120,106 +138,10 @@
                         android:id="@+id/upperBody"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/upper_body"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewFlexibility"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/cardViewAbs"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewUpperBody">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/flexibilityIcon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/flex" />
-
-                    <TextView
-                        android:id="@+id/flexibility"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/flexibility"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewGlutes"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toEndOf="@+id/cardViewAbs"
-                app:layout_constraintStart_toStartOf="@+id/cardViewAbs"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewUpperBody">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/glutesIcon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/bottom" />
-
-                    <TextView
-                        android:id="@+id/glutes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/glutes"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewLegs"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toStartOf="@+id/cardViewGlutes"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewUpperBody">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/legsIcon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/legs" />
-
-                    <TextView
-                        android:id="@+id/legs"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/legs"
+                        android:fontFamily="@font/lato"
+                        android:text="@string/muscle_gain"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -227,19 +149,18 @@
             </androidx.cardview.widget.CardView>
 
             <Button
+                style="@style/PrimaryButtonStyle"
                 android:id="@+id/continueButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:text="@string/continue_button"
+                android:enabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewGlutes" />
+                app:layout_constraintTop_toBottomOf="@+id/cardViewMaintenance" />
 
             <Button
+                style="@style/SkipButtonStyle"
                 android:id="@+id/skipButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/skip_button"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -248,9 +169,10 @@
 
             <ImageView
                 android:id="@+id/appIcon2"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/skipButton"

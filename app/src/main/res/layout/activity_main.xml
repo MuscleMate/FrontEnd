@@ -14,7 +14,7 @@
         android:layout_width="52dp"
         android:layout_height="52dp"
         android:layout_marginStart="88dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="50dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+
         android:fontFamily="@font/poppins_semibold"
         android:text="@string/app_name"
         android:textColor="@color/navy_blue"
@@ -103,7 +104,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logInChangeButton" />
 
     <Button
-        style="@style/LoginButton"
+        style="@style/PrimaryButtonStyle"
         android:id="@+id/logInButton"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
