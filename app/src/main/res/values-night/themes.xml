@@ -1,7 +1,108 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.MuscleMateFront" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.MuscleMateFront" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/grafit</item>
+        <item name="android:background">@color/black</item>
     </style>
+
+    <style name="MatchBackground">
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <style name="LogoStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <style name="ImageLogoStyleWhiteBg" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">@drawable/logo_dark</item>
+    </style>
+
+    <style name="ImageLogoStyleSnowBg" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">@drawable/logo_dark</item>
+    </style>
+
+    <style name="LoginSignupStyle" parent="@android:style/Widget.Button">
+        <item name="android:gravity">bottom|center_horizontal</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SecondaryTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:background">@color/black</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="HeadingStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:textColor">@color/pale_purple</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:layout_marginBottom">50dp</item>
+    </style>
+
+    <style name="TellMoreInputStyle" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@color/blue_gray</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="backgroundTint">@color/pale_purple</item>
+        <item name="fontFamily">@font/lato</item>
+    </style>
+
+    <style name="NumberPickerStyle" parent="">
+        <item name="np_textColor">@color/blue_gray</item>
+        <item name="np_selectedTextColor">@color/white</item>
+        <item name="np_dividerColor">@color/grafit</item>
+        <item name="np_dividerDistance">20dp</item>
+        <item name="np_dividerThickness">1dp</item>
+        <item name="np_textSize">14sp</item>
+        <item name="np_selectedTextSize">14sp</item>
+        <item name="np_typeface">@font/lato</item>
+        <item name="np_wheelItemCount">5</item>
+        <item name="np_wrapSelectorWheel">true</item>
+    </style>
+
+    <style name="WeightLossIcon" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">"@drawable/scale_dark"</item>
+    </style>
+
+    <style name="MaintenanceIcon" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">"@drawable/flex_dark"</item>
+    </style>
+
+    <style name="MuscleGainIcon" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">"@drawable/arms_dark"</item>
+    </style>
+
+    <style name="PrimaryTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ForgotPasswordTextStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <style name="SkipButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/button_rounded_corners_dark</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
 </resources>

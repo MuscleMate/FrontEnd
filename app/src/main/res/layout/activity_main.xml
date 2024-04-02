@@ -5,11 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    style="@style/MatchBackground">
 
 
     <ImageView
+        style="@style/ImageLogoStyleWhiteBg"
         android:id="@+id/appIcon"
         android:layout_width="52dp"
         android:layout_height="52dp"
@@ -17,19 +18,15 @@
         android:layout_marginTop="50dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        style="@style/LogoStyle"
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-
-        android:fontFamily="@font/poppins_semibold"
         android:text="@string/app_name"
-        android:textColor="@color/navy_blue"
-        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="@+id/appIcon"
         app:layout_constraintStart_toEndOf="@+id/appIcon"
         app:layout_constraintTop_toTopOf="@+id/appIcon"
@@ -117,13 +114,12 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword2" />
 
     <TextView
+        style="@style/ForgotPasswordTextStyle"
         android:id="@+id/forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/lato"
         android:text="@string/forgot_password"
-        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -152,9 +148,11 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            style="@style/MatchBackground">
 
             <ImageView
+                style="@style/MatchBackground"
                 android:id="@+id/googleIcon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -166,6 +164,7 @@
                 app:srcCompat="@drawable/google" />
 
             <ImageView
+                style="@style/MatchBackground"
                 android:id="@+id/appleIcon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -177,6 +176,7 @@
                 app:srcCompat="@drawable/apple" />
 
             <ImageView
+                style="@style/MatchBackground"
                 android:id="@+id/facebookIcon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -188,13 +188,12 @@
                 app:srcCompat="@drawable/facebook" />
 
             <TextView
+                style="@style/SecondaryTextStyle"
                 android:id="@+id/loginUsing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:fontFamily="@font/lato"
                 android:text="@string/loginUsing"
-                android:textColor="@color/navy_blue"
                 app:layout_constraintBottom_toTopOf="@+id/googleIcon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
