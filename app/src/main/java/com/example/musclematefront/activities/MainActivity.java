@@ -1,22 +1,12 @@
-package com.example.musclematefront;
+package com.example.musclematefront.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.musclematefront.databinding.ActivityMainBinding;
-import com.example.musclematefront.models.Tournament;
-import com.example.musclematefront.parsers.TournamentParser;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;

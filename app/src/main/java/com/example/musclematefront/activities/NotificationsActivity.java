@@ -1,13 +1,13 @@
-package com.example.musclematefront;
+package com.example.musclematefront.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.example.musclematefront.R;
 import com.example.musclematefront.databinding.ActivityNotificationsBinding;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 public class NotificationsActivity extends AppCompatActivity {
     ActivityNotificationsBinding binding;
@@ -29,14 +29,25 @@ public class NotificationsActivity extends AppCompatActivity {
     }
 
     private void setupBottomNavigation(){
+        binding.bottomNavigation.setSelectedItemId(R.id.action_notifications);
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.action_workouts) {
                 Intent intent = new Intent(NotificationsActivity.this, WorkoutsActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             } else if (item.getItemId() == R.id.action_notifications) {
-                // Handle other actions
-            } else {
+
+            } else if(item.getItemId()==R.id.action_profile){
+                Intent intent = new Intent(NotificationsActivity.this, ProfileActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }else if(item.getItemId()==R.id.action_social){
+                Intent intent = new Intent(NotificationsActivity.this, SocialActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
             return true;
         });

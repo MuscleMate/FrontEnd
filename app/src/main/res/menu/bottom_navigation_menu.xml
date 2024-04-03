@@ -13,9 +13,9 @@
         android:icon="@drawable/add"
         android:title="@string/add" />
     <item
-        android:id="@+id/action_tournaments"
+        android:id="@+id/action_social"
         android:icon="@drawable/tournaments"
-        android:title="@string/tournaments" />
+        android:title="@string/socials" />
     <item
         android:id="@+id/action_profile"
         android:icon="@drawable/profile"

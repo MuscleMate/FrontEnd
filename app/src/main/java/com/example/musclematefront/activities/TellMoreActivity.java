@@ -1,4 +1,4 @@
-package com.example.musclematefront;
+package com.example.musclematefront.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.view.View;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.musclematefront.databinding.ActivityTellMoreBinding;
 import com.shawnlin.numberpicker.NumberPicker;

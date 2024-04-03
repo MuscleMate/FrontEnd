@@ -1,14 +1,14 @@
-package com.example.musclematefront;
+package com.example.musclematefront.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
+import com.example.musclematefront.R;
 import com.example.musclematefront.databinding.ActivityChooseGoalBinding;
 
 public class ChooseGoalActivity extends AppCompatActivity {
