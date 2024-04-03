@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -30,17 +31,10 @@
 
 
             <com.shawnlin.numberpicker.NumberPicker
+                style="@style/NumberPickerStyle"
                 android:id="@+id/numberPickerHeight"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                app:np_dividerColor="@color/blue_gray"
-                app:np_dividerDistance="20dp"
-                app:np_dividerThickness="1dp"
-                app:np_textSize="14sp"
-                app:np_selectedTextSize="14sp"
-                app:np_typeface="@font/lato"
-                app:np_wheelItemCount="5"
-                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,17 +45,10 @@
 
 
             <com.shawnlin.numberpicker.NumberPicker
+                style="@style/NumberPickerStyle"
                 android:id="@+id/numberPickerWeight"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                app:np_dividerColor="@color/blue_gray"
-                app:np_dividerDistance="20dp"
-                app:np_dividerThickness="1dp"
-                app:np_textSize="14sp"
-                app:np_selectedTextSize="14sp"
-                app:np_typeface="@font/lato"
-                app:np_wheelItemCount="5"
-                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editWeight"
@@ -70,17 +57,10 @@
                 app:np_value="60" />
 
             <com.shawnlin.numberpicker.NumberPicker
+                style="@style/NumberPickerStyle"
                 android:id="@+id/numberPickerMonth"
                 android:layout_width="125dp"
                 android:layout_height="120dp"
-                app:np_dividerColor="@color/blue_gray"
-                app:np_dividerDistance="20dp"
-                app:np_dividerThickness="1dp"
-                app:np_textSize="14sp"
-                app:np_selectedTextSize="14sp"
-                app:np_typeface="@font/lato"
-                app:np_wheelItemCount="5"
-                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editDateOfBirth"
@@ -89,17 +69,10 @@
                 app:np_value="1" />
 
             <com.shawnlin.numberpicker.NumberPicker
+                style="@style/NumberPickerStyle"
                 android:id="@+id/numberPickerDay"
                 android:layout_width="125dp"
                 android:layout_height="120dp"
-                app:np_dividerColor="@color/blue_gray"
-                app:np_dividerDistance="20dp"
-                app:np_dividerThickness="1dp"
-                app:np_textSize="14sp"
-                app:np_selectedTextSize="14sp"
-                app:np_typeface="@font/lato"
-                app:np_wheelItemCount="5"
-                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toStartOf="@+id/numberPickerMonth"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editDateOfBirth"
@@ -108,17 +81,10 @@
                 app:np_value="1" />
 
             <com.shawnlin.numberpicker.NumberPicker
+                style="@style/NumberPickerStyle"
                 android:id="@+id/numberPickerYear"
                 android:layout_width="125dp"
                 android:layout_height="120dp"
-                app:np_dividerColor="@color/blue_gray"
-                app:np_dividerDistance="20dp"
-                app:np_dividerThickness="1dp"
-                app:np_textSize="14sp"
-                app:np_selectedTextSize="14sp"
-                app:np_typeface="@font/lato"
-                app:np_wheelItemCount="5"
-                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/numberPickerMonth"
                 app:layout_constraintTop_toBottomOf="@+id/editDateOfBirth"
@@ -127,17 +93,10 @@
                 app:np_value="1970" />
 
             <com.shawnlin.numberpicker.NumberPicker
+                style="@style/NumberPickerStyle"
                 android:id="@+id/numberPickerGender"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                app:np_dividerColor="@color/blue_gray"
-                app:np_dividerDistance="20dp"
-                app:np_dividerThickness="1dp"
-                app:np_textSize="14sp"
-                app:np_selectedTextSize="14sp"
-                app:np_typeface="@font/lato"
-                app:np_wheelItemCount="5"
-                app:np_wrapSelectorWheel="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editGender"
@@ -156,6 +115,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/numberPickerGender" />
 
             <ImageView
+                style="@style/ImageLogoStyleSnowBg"
                 android:id="@+id/imageViewLogo"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -164,9 +124,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonNext"
-                app:srcCompat="@drawable/logo"
-                android:contentDescription="logo" />
+                app:layout_constraintTop_toBottomOf="@+id/buttonNext" />
 
             <EditText
                 style="@style/TellMoreInputStyle"

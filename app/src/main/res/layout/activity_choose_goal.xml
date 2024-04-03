@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/snow" >
+    android:layout_height="match_parent">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -46,22 +45,20 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        style="@style/MaintenanceIcon"
                         android:id="@+id/absIcon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/flex" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        style="@style/PrimaryTextStyle"
                         android:id="@+id/abs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/lato"
                         android:text="@string/maintenance"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -86,22 +83,21 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        style="@style/WeightLossIcon"
                         android:id="@+id/weightLossIcon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/image_view_selected"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/scale" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        style="@style/PrimaryTextStyle"
                         android:id="@+id/weightLoss"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/lato"
                         android:text="@string/weight_loss"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -126,22 +122,20 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        style="@style/MuscleGainIcon"
                         android:id="@+id/upperBodyIcon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/arms" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        style="@style/PrimaryTextStyle"
                         android:id="@+id/upperBody"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/lato"
                         android:text="@string/muscle_gain"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -168,6 +162,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/continueButton" />
 
             <ImageView
+                style="@style/ImageLogoStyleSnowBg"
                 android:id="@+id/appIcon2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -175,8 +170,7 @@
                 android:layout_marginBottom="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/skipButton"
-                app:srcCompat="@drawable/logo" />
+                app:layout_constraintTop_toBottomOf="@+id/skipButton" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
