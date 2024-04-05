@@ -49,7 +49,7 @@ public class WorkoutsActivity extends AppCompatActivity {
     private void setupBottomNavigation() {
         binding.bottomNavigation.setSelectedItemId(R.id.action_workouts);
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.action_notifications) {
+            if (item.getItemId() == R.id.action_home) {
                 Intent intent = new Intent(WorkoutsActivity.this, NotificationsActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);

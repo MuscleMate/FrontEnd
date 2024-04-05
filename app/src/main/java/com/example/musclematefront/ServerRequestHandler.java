@@ -10,9 +10,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Executor;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class ServerRequestHandler extends AsyncTask<String, Void, JSONObject> {
 
@@ -33,31 +41,25 @@ public class ServerRequestHandler extends AsyncTask<String, Void, JSONObject> {
 
     @Override
     protected JSONObject doInBackground(String... params) {
-        String urlString = params[0];
-        JSONObject jsonResponse = null;
-        HttpURLConnection urlConnection = null;
-
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, params[2]);
+        Request request = new Request.Builder()
+                .url(params[0])
+                .method(params[1], body)
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Cookie", "jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NjBmZjkxZmY2YjQ2NzM2OWM5Y2M5MGQiLCJpYXQiOjE3MTIzMjI4NDcsImV4cCI6MTcxMjU4MjA0N30.JQbqhHQAZUC1VxprYvUB3LIBe8nmkyUfeugJ80oY8M8")
+                .build();
+        Response response;
         try {
-            URL url = new URL(urlString);
-            urlConnection = (HttpURLConnection) url.openConnection();
-            InputStream inputStream = urlConnection.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder builder = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                builder.append(line);
-            }
-            String jsonString = builder.toString();
-            jsonResponse = new JSONObject(jsonString);
-        } catch (IOException | JSONException e) {
-            Log.e(TAG, "Error: " + e.getMessage());
-            sendErrorToMainThread("Error: " + e.getMessage());
-        } finally {
-            if (urlConnection != null) {
-                urlConnection.disconnect();
-            }
+            response = client.newCall(request).execute();
+            String responseBody = response.body().string();
+            Log.d(TAG, "Response: " + responseBody);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        return jsonResponse;
+        return null;
     }
 
     @Override
@@ -85,7 +87,7 @@ public class ServerRequestHandler extends AsyncTask<String, Void, JSONObject> {
         });
     }
 
-    public void executeWithThreadPool(String url) {
-        executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
+    public void executeWithThreadPool(String url, String requestMethod, String jsonString) {
+        executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url, requestMethod, jsonString);
     }
 }

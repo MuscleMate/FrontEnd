@@ -5,50 +5,53 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.musclematefront.R;
-import com.example.musclematefront.databinding.ActivityProfileBinding;
+import com.example.musclematefront.databinding.ActivityNotificationsBinding;
 
-public class ProfileActivity extends AppCompatActivity {
-    ActivityProfileBinding binding;
-
+public class HomeActivity extends AppCompatActivity {
+    ActivityNotificationsBinding binding;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityProfileBinding.inflate(getLayoutInflater());
+        binding = ActivityNotificationsBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
         setupAppBar();
         setupBottomNavigation();
     }
+
     private void setupAppBar() {
         setSupportActionBar(binding.toolbar.getRoot());
-        getSupportActionBar().setTitle("Profile");
+        getSupportActionBar().setTitle("Home");
         RelativeLayout relativeLayout= findViewById(R.id.notification_layout);
         relativeLayout.setVisibility(View.GONE);
     }
+
     private void setupBottomNavigation(){
-        binding.bottomNavigation.setSelectedItemId(R.id.action_profile);
+        binding.bottomNavigation.setSelectedItemId(R.id.action_home);
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.action_workouts) {
-                Intent intent = new Intent(ProfileActivity.this, WorkoutsActivity.class);
+                Intent intent = new Intent(HomeActivity.this, WorkoutsActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             } else if (item.getItemId() == R.id.action_home) {
-                Intent intent = new Intent(ProfileActivity.this, NotificationsActivity.class);
+
+            } else if(item.getItemId()==R.id.action_profile){
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            } else if(item.getItemId()==R.id.action_profile){
             }else if(item.getItemId()==R.id.action_social){
-                Intent intent = new Intent(ProfileActivity.this, SocialActivity.class);
+                Intent intent = new Intent(HomeActivity.this, SocialActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);}
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
             return true;
         });
     }
 }
+
