@@ -1,7 +1,11 @@
 package com.example.musclematefront.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,10 +17,15 @@ import com.example.musclematefront.models.Tournament;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import okhttp3.Response;
+
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private int signUpStage=0;
     private boolean isLogIn=true;
+    Context context;
+    private static final String COOKIE_PREFS = "CookiePrefs";
+    private static final String COOKIE_KEY = "Cookie";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +33,18 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         setupButtons();
+        context = getApplicationContext();
+        //clearCookie();
         //hide password confirm
         binding.editTextPassword2.setVisibility(View.GONE);
 
+    }
+
+    private void clearCookie() {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(COOKIE_PREFS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove(COOKIE_KEY);
+        editor.apply();
     }
     private void setupButtons(){
         binding.logInChangeButton.setOnClickListener(view -> {
@@ -46,13 +64,16 @@ public class MainActivity extends AppCompatActivity {
 
         binding.logInButton.setOnClickListener(view -> {
             if(isLogIn==true){
-                Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
-                ServerRequestHandler requestHandler = new ServerRequestHandler(new ServerRequestHandler.OnServerResponseListener() {
+                ServerRequestHandler requestHandler = new ServerRequestHandler(MainActivity.this,new ServerRequestHandler.OnServerResponseListener() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(Pair<Integer, JSONObject> responsePair) {
+                        int statusCode = responsePair.first;
+                        JSONObject response = responsePair.second;
                         try{
-                            String status = response.getString("status");
-                            if (status.equals("OK")) {
+                            String status = response.optString("status");
+                            Log.d("asd", "onResponse: "+response.toString());
+                            if (status.equals("OK")||statusCode==200||statusCode==201) {
+
                                 // Start TellMoreActivity
                                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                                 startActivity(intent);
@@ -61,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                                 // For example, show an error message
                                 Toast.makeText(MainActivity.this, "Response not OK", Toast.LENGTH_SHORT).show();
                             }
-                        }catch (JSONException e) {
+                        }catch (Exception e) {
                             e.printStackTrace();
                             // Handle JSON parsing error
                             Toast.makeText(MainActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
@@ -78,15 +99,15 @@ public class MainActivity extends AppCompatActivity {
                 // JSON payload
                 JSONObject jsonPayload = new JSONObject();
                 try {
-                    jsonPayload.put("email", "example@example.com");
-                    jsonPayload.put("password", "123456");
+                    jsonPayload.put("email", binding.editTextName.getText().toString());
+                        jsonPayload.put("password", binding.editTextPassword.getText().toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
                 // Convert JSON payload to string
                 String jsonString = jsonPayload.toString();
-                requestHandler.executeWithThreadPool(url,"GET",jsonString);
+                requestHandler.executeWithThreadPool(url,"POST",jsonString);
 
             }else{
                 if(signUpStage==0){

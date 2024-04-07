@@ -1,11 +1,17 @@
 package com.example.musclematefront;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.util.Pair;
+import android.widget.Toast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,58 +28,102 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class ServerRequestHandler extends AsyncTask<String, Void, JSONObject> {
+public class ServerRequestHandler extends AsyncTask<String, Void, Pair<Integer, JSONObject>> {
 
     private static final String TAG = ServerRequestHandler.class.getSimpleName();
-
+    private static final String COOKIE_PREFS = "CookiePrefs";
+    private static final String COOKIE_KEY = "Cookie";
+    private static final String USER_PREFS = "UserPrefs";
+    private static final String USER_KEY = "User";
     private OnServerResponseListener listener;
     private Handler handler;
+    Context context;
 
     public interface OnServerResponseListener {
-        void onResponse(JSONObject response);
+        void onResponse(Pair<Integer, JSONObject> responsePair);
+
         void onError(String error);
     }
 
-    public ServerRequestHandler(OnServerResponseListener listener) {
+    public ServerRequestHandler(Context context, OnServerResponseListener listener) {
+        this.context = context;
         this.listener = listener;
         this.handler = new Handler(Looper.getMainLooper());
     }
 
     @Override
-    protected JSONObject doInBackground(String... params) {
+    protected Pair<Integer, JSONObject> doInBackground(String... params) {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, params[2]);
-        Request request = new Request.Builder()
+        Request.Builder requestBuilder = new Request.Builder()
                 .url(params[0])
-                .method(params[1], body)
                 .addHeader("Content-Type", "application/json")
-                .addHeader("Cookie", "jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NjBmZjkxZmY2YjQ2NzM2OWM5Y2M5MGQiLCJpYXQiOjE3MTIzMjI4NDcsImV4cCI6MTcxMjU4MjA0N30.JQbqhHQAZUC1VxprYvUB3LIBe8nmkyUfeugJ80oY8M8")
-                .build();
+                .addHeader("Cookie", context.getSharedPreferences(COOKIE_PREFS, Context.MODE_PRIVATE).getString(COOKIE_KEY, ""));
+
+        if ("GET".equals(params[1])) {
+            // If it's a GET request, use GET method
+            requestBuilder = requestBuilder.get();
+        } else if ("POST".equals(params[1])) {
+            // If it's a POST request, use POST method and include the request body
+            MediaType mediaType = MediaType.parse("application/json");
+            RequestBody body = RequestBody.create(mediaType, params[2]); // Assuming the JSON payload is at params[3]
+            requestBuilder = requestBuilder.post(body);
+        }
+
+        // Build the request
+        Request request = requestBuilder.build();
         Response response;
+        JSONObject jsonResponseHeader;
         try {
             response = client.newCall(request).execute();
+            int statusCode = response.code();
             String responseBody = response.body().string();
             Log.d(TAG, "Response: " + responseBody);
+            JSONObject jsonResponse = new JSONObject(responseBody);
+
+            String user = jsonResponse.optString("user");
+            JSONObject jsonHeader = new JSONObject(response.headers().toMultimap());
+            String cookie = jsonHeader.optString("Set-Cookie");
+            if (!user.isEmpty()) {
+                // Save the extracted cookie to SharedPreferences
+                saveCookie(user, cookie);
+            }
+            return new Pair<>(statusCode, jsonResponse);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
         }
-        return null;
+
+
+    }
+
+    private void saveCookie(String user, String cookie) {
+        if (cookie != null && cookie != "") {
+            SharedPreferences sharedPreferences = context.getSharedPreferences(COOKIE_PREFS, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(COOKIE_KEY, cookie);
+            editor.apply();
+            SharedPreferences sharedPreferencesUser = context.getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editorUser = sharedPreferencesUser.edit();
+            editor.putString(USER_KEY, user);
+            editorUser.apply();
+        }
     }
 
     @Override
-    protected void onPostExecute(JSONObject jsonObject) {
+    protected void onPostExecute(Pair<Integer, JSONObject> response) {
+        JSONObject jsonObject = response.second;
         if (jsonObject != null) {
-            sendResponseToMainThread(jsonObject);
+            sendResponseToMainThread(response);
         }
     }
 
-    private void sendResponseToMainThread(final JSONObject response) {
+    private void sendResponseToMainThread(final Pair<Integer, JSONObject> responsePair) {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                listener.onResponse(response);
+                listener.onResponse(responsePair);
             }
         });
     }

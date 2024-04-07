@@ -2,6 +2,7 @@ package com.example.musclematefront.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Toast;
 
@@ -42,11 +43,14 @@ public class TellMoreActivity extends AppCompatActivity {
         binding.buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ServerRequestHandler requestHandler = new ServerRequestHandler(new ServerRequestHandler.OnServerResponseListener() {
+                ServerRequestHandler requestHandler = new ServerRequestHandler(TellMoreActivity.this,new ServerRequestHandler.OnServerResponseListener() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(Pair<Integer, JSONObject> responsePair) {
+                        int statusCode = responsePair.first;
+                        JSONObject response = responsePair.second;
                         try{
-                            String status = response.getString("status");
+                            String status = response.optString("status");
+
                             if (status.equals("OK")) {
                                 // Start TellMoreActivity
                                 Intent intent = new Intent(TellMoreActivity.this, HomeActivity.class);
@@ -56,10 +60,8 @@ public class TellMoreActivity extends AppCompatActivity {
                                 // For example, show an error message
                                 Toast.makeText(TellMoreActivity.this, "Response not OK", Toast.LENGTH_SHORT).show();
                             }
-                        }catch (JSONException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
-                            // Handle JSON parsing error
-                            Toast.makeText(TellMoreActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
                         }
                     }
 
