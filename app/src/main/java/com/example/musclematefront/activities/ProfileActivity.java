@@ -22,6 +22,14 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(view);
         setupAppBar();
         setupBottomNavigation();
+        setupSettings();
+    }
+
+    private void setupSettings(){
+        binding.applicationButton.setOnClickListener(view -> {
+            Intent intent = new Intent(ProfileActivity.this, SettingsApplicationActivity.class);
+            startActivity(intent);
+        });
     }
     private void setupAppBar() {
         setSupportActionBar(binding.toolbar.getRoot());
