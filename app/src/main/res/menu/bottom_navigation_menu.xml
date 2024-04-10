@@ -10,7 +10,7 @@
         android:title="@string/workouts" />
     <item
         android:id="@+id/action_add"
-        android:icon="@drawable/add"
+        android:icon="@drawable/add1"
         android:title="@string/add" />
     <item
         android:id="@+id/action_social"

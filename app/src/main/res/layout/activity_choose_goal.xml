@@ -143,12 +143,13 @@
             </androidx.cardview.widget.CardView>
 
             <Button
-                style="@style/PrimaryButtonStyle"
                 android:id="@+id/continueButton"
-                android:layout_marginTop="50dp"
-                android:text="@string/continue_button"
+                style="@style/PrimaryButtonStyle"
+                android:layout_marginTop="48dp"
                 android:enabled="false"
+                android:text="@string/continue_button"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewMaintenance" />
 
