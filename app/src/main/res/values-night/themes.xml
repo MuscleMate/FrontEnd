@@ -104,5 +104,12 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="NavBarIcons" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:layout_height">70dp</item>
+        <item name="itemIconSize">40dp</item>
+        <item name="itemIconTint">@drawable/icons_dark</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+    </style>
+
 
 </resources>
