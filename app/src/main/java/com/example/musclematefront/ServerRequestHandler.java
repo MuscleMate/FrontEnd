@@ -59,7 +59,7 @@ public class ServerRequestHandler extends AsyncTask<String, Void, Pair<Integer, 
                 .url(params[0])
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Cookie", context.getSharedPreferences(COOKIE_PREFS, Context.MODE_PRIVATE).getString(COOKIE_KEY, ""));
-
+        Log.d(TAG, "Cookie: " + context.getSharedPreferences(COOKIE_PREFS, Context.MODE_PRIVATE).getString(COOKIE_KEY, "a"));
         if ("GET".equals(params[1])) {
             // If it's a GET request, use GET method
             requestBuilder = requestBuilder.get();
@@ -83,8 +83,13 @@ public class ServerRequestHandler extends AsyncTask<String, Void, Pair<Integer, 
 
             String user = jsonResponse.optString("user");
             JSONObject jsonHeader = new JSONObject(response.headers().toMultimap());
-            String cookie = jsonHeader.optString("Set-Cookie");
-            if (!user.isEmpty()) {
+            String cookie = jsonHeader.optString("set-cookie");
+            if (cookie != null&&cookie.length()>3) {
+                String[] parts = cookie.split(";");
+                cookie = parts[0];
+                cookie = cookie.trim().substring(2);
+                }
+            if (!user.isEmpty()&& !cookie.isEmpty()) {
                 // Save the extracted cookie to SharedPreferences
                 saveCookie(user, cookie);
             }
@@ -102,12 +107,11 @@ public class ServerRequestHandler extends AsyncTask<String, Void, Pair<Integer, 
         if (cookie != null && cookie != "") {
             SharedPreferences sharedPreferences = context.getSharedPreferences(COOKIE_PREFS, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString(COOKIE_KEY, cookie);
-            editor.apply();
+            editor.putString(COOKIE_KEY, cookie).apply();
+            Log.d(TAG, "cookiesaved: " + cookie);
             SharedPreferences sharedPreferencesUser = context.getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE);
             SharedPreferences.Editor editorUser = sharedPreferencesUser.edit();
-            editor.putString(USER_KEY, user);
-            editorUser.apply();
+            editor.putString(USER_KEY, user).apply();
         }
     }
 

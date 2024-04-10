@@ -33,8 +33,8 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
     @Override
     public void onBindViewHolder(@NonNull FriendRequestAdapter.ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
-        TextView userNameTextView = cardView.findViewById(R.id.userNameTextView);
-        TextView levelTextView = cardView.findViewById(R.id.levelTextView);
+        TextView userNameTextView = cardView.findViewById(R.id.userMessageTextView);
+        TextView levelTextView = cardView.findViewById(R.id.timeTextView);
         Button acceptButton = cardView.findViewById(R.id.acceptButton);
         Button ignoreButton = cardView.findViewById(R.id.ignoreButton);
         userNameTextView.setText(friendsList.get(position).toString());
