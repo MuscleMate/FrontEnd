@@ -16,49 +16,60 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/userImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="10dp"
+            android:padding="4dp"
+            app:shapeAppearanceOverlay="@style/circleImageView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/arms" />
 
         <TextView
+            style="@style/UsernameStyle"
             android:id="@+id/userNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:text="userNameTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/hubertBubert"
             app:layout_constraintStart_toEndOf="@+id/userImageView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            style="@style/LevelInfoStyle"
             android:id="@+id/levelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:text="levelTextView"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/lvl"
             app:layout_constraintStart_toEndOf="@+id/userImageView"
             app:layout_constraintTop_toBottomOf="@+id/userNameTextView" />
 
         <Button
+            style="@style/PrimaryButtonStyle"
             android:id="@+id/acceptButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Accept"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="14sp"
+            android:text="@string/accept"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
+            style="@style/BorderOnlyButton"
             android:id="@+id/ignoreButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ignore"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="14sp"
+            android:text="@string/ignore"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/acceptButton"
             app:layout_constraintTop_toTopOf="parent" />
