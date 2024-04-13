@@ -33,4 +33,9 @@
     <string name="profile">Profile</string>
     <string name="events">Events</string>
     <string name="home">Home</string>
+    <!--Friend Request Card -->
+    <string name="hubertBubert">Hubert Bubert</string>
+    <string name="lvl">Lvl 3</string>
+    <string name="accept">Accept</string>
+    <string name="ignore">Ignore</string>
 </resources>

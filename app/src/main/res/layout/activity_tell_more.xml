@@ -107,7 +107,10 @@
             <Button
                 style="@style/PrimaryButtonStyle"
                 android:id="@+id/buttonNext"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="30dp"
+                android:textSize="16sp"
                 android:text="@string/next"
                 android:enabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
