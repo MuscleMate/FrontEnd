@@ -1,15 +1,23 @@
 package com.example.musclematefront.activities;
 
+import static com.example.musclematefront.parsers.FriendsParser.parseFriends;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.musclematefront.R;
+import com.example.musclematefront.ServerRequestHandler;
 import com.example.musclematefront.databinding.ActivityProfileBinding;
+
+import org.json.JSONObject;
 
 public class ProfileActivity extends AppCompatActivity {
     ActivityProfileBinding binding;
@@ -23,7 +31,81 @@ public class ProfileActivity extends AppCompatActivity {
         setupAppBar();
         setupBottomNavigation();
         setupSettings();
+        sendFirstNameRequest();
+        sendLastNameRequest();
     }
+    private void sendFirstNameRequest(){
+        ServerRequestHandler requestHandler = new ServerRequestHandler(ProfileActivity.this,new ServerRequestHandler.OnServerResponseListener() {
+            @Override
+            public void onResponse(Pair<Integer, JSONObject> responsePair) {
+                int statusCode = responsePair.first;
+                JSONObject response = responsePair.second;
+                try{
+                    String status = response.optString("status");
+                    Log.d("asd", "onResponse: "+response.toString());
+                    if (status.equals("OK")||statusCode==200||statusCode==201) {
+                        String firstName = response.getString("firstName");
+                        binding.firstNameTextView.setText(firstName);
+                    } else {
+                        // Handle other cases if needed
+                        // For example, show an error message
+                        Toast.makeText(ProfileActivity.this, "Response not OK", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                    // Handle JSON parsing error
+                    Toast.makeText(ProfileActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(ProfileActivity.this, error, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        String url = "http://192.168.1.4:4000/user/firstName";
+        requestHandler.executeWithThreadPool(url,"GET","");
+
+    }
+    private void sendLastNameRequest(){
+        ServerRequestHandler requestHandler = new ServerRequestHandler(ProfileActivity.this,new ServerRequestHandler.OnServerResponseListener() {
+            @Override
+            public void onResponse(Pair<Integer, JSONObject> responsePair) {
+                int statusCode = responsePair.first;
+                JSONObject response = responsePair.second;
+                try{
+                    String status = response.optString("status");
+                    Log.d("asd", "onResponse: "+response.toString());
+                    if (status.equals("OK")||statusCode==200||statusCode==201) {
+                        String lastName = response.getString("lastName");
+                        binding.lastNameTextView.setText(lastName);
+                    } else {
+                        // Handle other cases if needed
+                        // For example, show an error message
+                        Toast.makeText(ProfileActivity.this, "Response not OK", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                    // Handle JSON parsing error
+                    Toast.makeText(ProfileActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(ProfileActivity.this, error, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        String url = "http://192.168.1.4:4000/user/lastName";
+        requestHandler.executeWithThreadPool(url,"GET","");
+
+    }
+
+
 
     private void setupSettings(){
         binding.applicationButton.setOnClickListener(view -> {

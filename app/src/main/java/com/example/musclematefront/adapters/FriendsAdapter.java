@@ -13,46 +13,35 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musclematefront.R;
 import com.example.musclematefront.models.Friend;
+import com.example.musclematefront.models.Notification;
 
 import java.util.List;
 
-public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdapter.ViewHolder>{
+public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHolder>{
     private List<Friend> friendsList;
     private Context context;
-    public FriendRequestAdapter(List<Friend> friends){
+    public FriendsAdapter(List<Friend> friends){
         this.friendsList = friends;
+
+
     }
-    public void setFriendsRequestList(List<Friend> friendList) {
+    public void setFriendsList(List<Friend> friendList) {
         this.friendsList = friendList;
     }
     @Override
-    public FriendRequestAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public FriendsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.friend_request_card, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.friends_card, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FriendRequestAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FriendsAdapter.ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
         TextView userNameTextView = cardView.findViewById(R.id.userNameTextView);
         TextView levelTextView = cardView.findViewById(R.id.levelTextView);
-        Button acceptButton = cardView.findViewById(R.id.acceptButton);
-        Button ignoreButton = cardView.findViewById(R.id.ignoreButton);
         userNameTextView.setText(friendsList.get(position).getFirstName());
-        levelTextView.setText(String.valueOf(friendsList.get(position).getRp().getLevel()));
-        acceptButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //accept friend request
-            }
-        });
-        ignoreButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //ignore friend request
-            }
-        });
+        levelTextView.setText("lvl "+String.valueOf(friendsList.get(position).getRp().getLevel()));
     }
 
     @Override

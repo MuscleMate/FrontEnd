@@ -33,7 +33,7 @@
                 app:srcCompat="@drawable/arms" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/firstNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -97,6 +97,15 @@
                 android:text="Application"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/settings" />
+
+            <TextView
+                android:id="@+id/lastNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="@+id/firstNameTextView"
+                app:layout_constraintTop_toBottomOf="@+id/firstNameTextView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
