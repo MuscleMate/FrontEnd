@@ -45,4 +45,8 @@
     <string name="hide">Hide</string>
     <string name="zeroFriends">0 friends</string>
     <string name="addFriend">Add friend</string>
+    <!--Notification activity-->
+    <string name="time">23:17</string>
+    <string name="message">Your workout starts in 15 minutes!</string>
+    <string name="number7">7</string>
 </resources>
