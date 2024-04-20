@@ -20,28 +20,37 @@
             android:layout_height="wrap_content">
 
             <TextView
+                style="@style/SecondaryTextStyleSnowBg"
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="0 new requests"
+                android:text="@string/zeroNewRequests"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
+                style="@style/PrimaryButtonStyle"
                 android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Received"
+                android:layout_width="70dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:textSize="11sp"
+                android:text="@string/received"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <Button
+                style="@style/BorderOnlyButton"
                 android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sent"
+                android:layout_width="50dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="10dp"
+                android:textSize="11sp"
+                android:text="@string/sent"
                 app:layout_constraintStart_toEndOf="@+id/button"
                 app:layout_constraintTop_toTopOf="@+id/button" />
 
@@ -61,6 +70,8 @@
                         android:id="@+id/friendsRequestRecyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="20dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -68,10 +79,12 @@
                     </androidx.recyclerview.widget.RecyclerView>
 
                     <Button
+                        style="@style/hideTextStyle"
                         android:id="@+id/button3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hide"
+                        android:textSize="16sp"
+                        android:text="@string/hide"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/friendsRequestRecyclerView" />
@@ -92,12 +105,14 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        style="@style/SecondaryTextStyleSnowBg"
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:text="0 friends"
+                        android:gravity="bottom"
+                        android:textSize="24sp"
+                        android:text="@string/zeroFriends"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,12 +129,14 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="20dp">
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/friendsRecyclerView"
                                 android:layout_width="409dp"
                                 android:layout_height="340dp"
+                                android:layout_marginStart="20dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -128,11 +145,14 @@
                     </androidx.core.widget.NestedScrollView>
 
                     <Button
+                        style="@style/addFriendTextStyle"
                         android:id="@+id/button4"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:text="Add Friend"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="20dp"
+                        android:textSize="16sp"
+                        android:gravity="bottom|center_horizontal"
+                        android:text="@string/addFriend"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>

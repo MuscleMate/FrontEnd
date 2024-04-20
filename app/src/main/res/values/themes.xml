@@ -41,7 +41,7 @@
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="SecondaryTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="SecondaryTextStyleWhiteBg" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:background">@color/white</item>
         <item name="android:fontFamily">@font/lato</item>
         <item name="android:textColor">@color/navy_blue</item>
@@ -136,6 +136,23 @@
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="SecondaryTextStyleSnowBg" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textColor">@color/navy_blue</item>
+    </style>
+
+    <style name="addFriendTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:background">none</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="hideTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:background">none</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textColor">@color/navy_blue</item>
     </style>
 
     <style name="Theme.MuscleMateFront" parent="Base.Theme.MuscleMateFront" />
