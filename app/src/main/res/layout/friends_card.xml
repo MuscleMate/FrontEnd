@@ -51,10 +51,11 @@
             app:layout_constraintTop_toBottomOf="@+id/userNameTextView" />
 
         <Button
+            style="@style/PrimaryButtonStyle"
             android:id="@+id/friendsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="@string/add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
