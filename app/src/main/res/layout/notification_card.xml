@@ -17,34 +17,38 @@
         android:layout_height="match_parent">
 
         <TextView
+            style="@style/simpleTextStyle"
             android:id="@+id/userMessageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="userMessageTextView"
+            android:text="@string/message"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/timeTextView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            style="@style/timeTextStyle"
             android:id="@+id/timeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="timeTextView"
+            android:layout_marginStart="20dp"
+            android:text="@string/time"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageViewNotification"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/blue"
+            app:shapeAppearanceOverlay="@style/circleImageView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/apple" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
