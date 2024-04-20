@@ -38,4 +38,11 @@
     <string name="lvl">Lvl 3</string>
     <string name="accept">Accept</string>
     <string name="ignore">Ignore</string>
+    <!--Fragment friends-->
+    <string name="zeroNewRequests">0 new requests</string>
+    <string name="received">Received</string>
+    <string name="sent">Sent</string>
+    <string name="hide">Hide</string>
+    <string name="zeroFriends">0 friends</string>
+    <string name="addFriend">Add friend</string>
 </resources>
