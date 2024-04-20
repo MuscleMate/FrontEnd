@@ -41,7 +41,7 @@
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="SecondaryTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="SecondaryTextStyleWhiteBg" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:background">@color/white</item>
         <item name="android:fontFamily">@font/lato</item>
         <item name="android:textColor">@color/navy_blue</item>
