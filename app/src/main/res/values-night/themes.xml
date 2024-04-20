@@ -33,7 +33,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="SecondaryTextStyleWhiteBg" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="SecondaryTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:background">@color/black</item>
         <item name="android:fontFamily">@font/lato</item>
         <item name="android:textColor">@color/blue</item>
@@ -116,33 +116,6 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/lato_bold</item>
     </style>
-
-    <style name="SecondaryTextStyleSnowBg" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:fontFamily">@font/lato</item>
-        <item name="android:textColor">@color/blue</item>
-    </style>
-
-    <style name="addFriendTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:background">none</item>
-        <item name="android:fontFamily">@font/lato</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="hideTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:background">none</item>
-        <item name="android:fontFamily">@font/lato</item>
-        <item name="android:textColor">@color/pale_purple</item>
-    </style>
-
-    <style name="simpleTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:fontFamily">@font/lato</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="bellStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="tint">@color/pale_purple</item>
-    </style>
-
 
 
 </resources>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize">
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary">
 
 
     <RelativeLayout
@@ -14,37 +13,22 @@
         android:layout_gravity="end">
 
         <ImageView
-            style="@style/bellStyle"
             android:id="@+id/notification_icon"
-            android:layout_marginEnd="20dp"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:src="@drawable/ic_notifications" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/notification_style"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginEnd="2.5dp"
-            android:background="@color/blue"
-            app:shapeAppearanceOverlay="@style/circleImageView"
-            android:layout_alignTop="@id/notification_icon"
-            android:layout_alignEnd="@id/notification_icon" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notifications"
+            android:layout_marginEnd="8dp"/>
 
         <TextView
             android:id="@+id/notification_badge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/number7"
-            android:gravity="center_horizontal|center_vertical"
+            android:text="99+"
             android:textColor="@android:color/white"
-            android:background="@android:color/transparent"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:layout_alignEnd="@+id/notification_style"
-            android:layout_alignTop="@+id/notification_style"
-            android:layout_alignStart="@+id/notification_style"
-            android:layout_alignBottom="@+id/notification_style" />
+            android:textSize="12sp"
+            android:padding="4dp"
+            android:layout_alignTop="@id/notification_icon"
+            android:layout_alignEnd="@id/notification_icon" />
 
     </RelativeLayout>
 
