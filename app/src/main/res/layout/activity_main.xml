@@ -188,7 +188,7 @@
                 app:srcCompat="@drawable/facebook" />
 
             <TextView
-                style="@style/SecondaryTextStyleWhiteBg"
+                style="@style/SecondaryTextStyle"
                 android:id="@+id/loginUsing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
