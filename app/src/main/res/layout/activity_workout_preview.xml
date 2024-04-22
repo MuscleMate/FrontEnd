@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/app_bar_layout" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:background="@color/snow"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/ExerciseHeader"
+                android:textSize="24sp"
+                android:id="@+id/workoutTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="34dp"
+                tools:layout_editor_absoluteY="35dp" />
+
+            <ImageView
+                android:id="@+id/isFavImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/not_fav"
+                tools:layout_editor_absoluteX="355dp"
+                tools:layout_editor_absoluteY="35dp" />
+
+            <ImageView
+                android:id="@+id/clockIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/clock"
+                tools:layout_editor_absoluteX="34dp"
+                tools:layout_editor_absoluteY="70dp" />
+
+            <TextView
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="59dp"
+                tools:layout_editor_absoluteY="67dp" />
+
+            <TextView
+                android:id="@+id/durationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="125dp"
+                tools:layout_editor_absoluteY="67dp" />
+
+            <TextView
+                android:id="@+id/amountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="190dp"
+                tools:layout_editor_absoluteY="67dp" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/fire"
+                tools:layout_editor_absoluteX="34dp"
+                tools:layout_editor_absoluteY="107dp" />
+
+            <TextView
+                style="@style/ExerciseHeader"
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exercise set"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="109dp" />
+
+            <TextView
+                android:id="@+id/saveTemplate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save as template"
+                tools:layout_editor_absoluteX="271dp"
+                tools:layout_editor_absoluteY="109dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="346dp"
+                android:layout_height="84dp"
+                tools:layout_editor_absoluteX="34dp"
+                tools:layout_editor_absoluteY="142dp" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/dumbbell"
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="271dp" />
+
+            <TextView
+                style="@style/ExerciseHeader"
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Equipment"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="271dp" />
+
+            <TextView
+                android:id="@+id/equipment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No equipment needed"
+                tools:layout_editor_absoluteX="34dp"
+                tools:layout_editor_absoluteY="311dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="343dp"
+                android:layout_height="74dp"
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="311dp" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/person"
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="425dp" />
+
+            <TextView
+                style="@style/ExerciseHeader"
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="424dp" />
+
+            <TextView
+                android:id="@+id/assignees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nobody is assigned."
+                tools:layout_editor_absoluteX="31dp"
+                tools:layout_editor_absoluteY="457dp" />
+
+            <TextView
+                android:id="@+id/assignees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invite friends"
+                tools:layout_editor_absoluteX="157dp"
+                tools:layout_editor_absoluteY="457dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="343dp"
+                android:layout_height="73dp"
+                tools:layout_editor_absoluteX="31dp"
+                tools:layout_editor_absoluteY="457dp" />
+
+            <TextView
+                android:id="@+id/deleteView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="20dp"
+                android:drawableTop="@drawable/trashcan"
+                android:text="Delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/editView"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/editView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:drawableTop="@drawable/edit"
+                android:text="Edit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/startView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+
+                android:layout_marginBottom="20dp"
+                android:drawableTop="@drawable/start"
+                android:text="Start"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        style="@style/NavBarIcons"
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -73,7 +73,7 @@ public class NotificationsActivity extends AppCompatActivity {
                 Toast.makeText(NotificationsActivity.this, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/user/notifications?count=30";
+        String url = "http://192.168.1.9:4000/user/notifications?count=30";
 
 
         requestHandler.executeWithThreadPool(url,"GET","");

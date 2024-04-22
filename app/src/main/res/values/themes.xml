@@ -171,4 +171,10 @@
     </style>
 
     <style name="Theme.MuscleMateFront" parent="Base.Theme.MuscleMateFront" />
+    <style name="ExerciseHeader">
+        <item name="android:textColor">@color/navy_blue</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>
