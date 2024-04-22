@@ -1,6 +1,9 @@
 package com.example.musclematefront.activities;
 
 import static com.example.musclematefront.parsers.FriendsParser.parseFriends;
+import static com.example.musclematefront.parsers.SupplementParser.parseSupplements;
+
+import static java.security.AccessController.getContext;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,15 +15,28 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musclematefront.R;
 import com.example.musclematefront.ServerRequestHandler;
+import com.example.musclematefront.adapters.FriendRequestAdapter;
+import com.example.musclematefront.adapters.SupplementsAdapter;
 import com.example.musclematefront.databinding.ActivityProfileBinding;
+import com.example.musclematefront.models.Friend;
+import com.example.musclematefront.models.Supplement;
+import com.example.musclematefront.parsers.SupplementParser;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProfileActivity extends AppCompatActivity {
     ActivityProfileBinding binding;
+    RecyclerView supplementsRecyclerView;
+    SupplementsAdapter supplementsAdapter;
+    private List<Supplement> supplementList = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +49,51 @@ public class ProfileActivity extends AppCompatActivity {
         setupSettings();
         sendFirstNameRequest();
         sendLastNameRequest();
+        sendSupplemetnsRequest();
+        setupSupplementsRecyclerView();
+    }
+    public void setupSupplementsRecyclerView(){
+        supplementsRecyclerView = (RecyclerView) binding.supplementsRecyclerView;
+        supplementsRecyclerView.setLayoutManager(new LinearLayoutManager(ProfileActivity.this));
+        supplementsAdapter = new SupplementsAdapter(supplementList);
+        supplementsRecyclerView.setAdapter(supplementsAdapter);
+        // The list we passed to the mAdapter was changed so we have to notify it in order to update
+        supplementsAdapter.notifyDataSetChanged();
+    }
+    private void sendSupplemetnsRequest(){
+        ServerRequestHandler requestHandler = new ServerRequestHandler(ProfileActivity.this,new ServerRequestHandler.OnServerResponseListener() {
+            @Override
+            public void onResponse(Pair<Integer, JSONObject> responsePair) {
+                int statusCode = responsePair.first;
+                JSONObject response = responsePair.second;
+                try{
+                    String status = response.optString("status");
+                    Log.d("asd", "onResponse: "+response.toString());
+                    if (status.equals("OK")||statusCode==200||statusCode==201) {
+                        supplementList = parseSupplements(response);
+                        supplementsAdapter.setSupplementList(supplementList);
+                        supplementsAdapter.notifyDataSetChanged();
+                    } else {
+                        // Handle other cases if needed
+                        // For example, show an error message
+                        Toast.makeText(ProfileActivity.this, "Response not OK", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                    // Handle JSON parsing error
+                    Toast.makeText(ProfileActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(ProfileActivity.this, error, Toast.LENGTH_SHORT).show();
+            }
+        });
+        String url = "http://192.168.1.4:4000/user/suplement/all";
+
+
+        requestHandler.executeWithThreadPool(url,"GET","");
     }
     private void sendFirstNameRequest(){
         ServerRequestHandler requestHandler = new ServerRequestHandler(ProfileActivity.this,new ServerRequestHandler.OnServerResponseListener() {

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,8 +35,8 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
     @Override
     public void onBindViewHolder(@NonNull NotificationsAdapter.ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
-        TextView userMessageTextView = cardView.findViewById(R.id.userMessageTextView);
-        TextView timeTextView = cardView.findViewById(R.id.timeTextView);
+        TextView userMessageTextView = cardView.findViewById(R.id.dosageTextView);
+        TextView timeTextView = cardView.findViewById(R.id.suplementName);
         ImageView imageView = cardView.findViewById(R.id.imageViewNotification);
         userMessageTextView.setText(notificationsList.get(position).getMessage());
         timeTextView.setText(notificationsList.get(position).getDate().toString());

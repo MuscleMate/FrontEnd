@@ -66,7 +66,7 @@ public class ServerRequestHandler extends AsyncTask<String, Void, Pair<Integer, 
         } else if ("POST".equals(params[1])) {
             // If it's a POST request, use POST method and include the request body
             MediaType mediaType = MediaType.parse("application/json");
-            RequestBody body = RequestBody.create(mediaType, params[2]); // Assuming the JSON payload is at params[3]
+            RequestBody body = RequestBody.create(mediaType, params[2]);
             requestBuilder = requestBuilder.post(body);
         }
 

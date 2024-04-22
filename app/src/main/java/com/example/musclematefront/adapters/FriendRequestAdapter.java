@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musclematefront.R;
+import com.example.musclematefront.activitiesSocial.FriendsFragment;
 import com.example.musclematefront.models.Friend;
 
 import java.util.List;
@@ -45,12 +46,14 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
             @Override
             public void onClick(View v) {
                 //accept friend request
+                FriendsFragment.sendAcceptFriend(friendsList.get(position).getId(),context);
             }
         });
         ignoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //ignore friend request
+                FriendsFragment.sendIgnoreFriend(friendsList.get(position).getId(),context);
             }
         });
     }
