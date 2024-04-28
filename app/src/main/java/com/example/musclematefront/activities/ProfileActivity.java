@@ -30,6 +30,7 @@ import com.example.musclematefront.models.Measurement;
 import com.example.musclematefront.models.Supplement;
 import com.example.musclematefront.parsers.SupplementParser;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -59,6 +60,122 @@ public class ProfileActivity extends AppCompatActivity {
         sendMeasurementRequest();
         setupSupplementsRecyclerView();
         setupMeasurementsRecyclerView();
+        setupSupplements();
+        setupMeasurements();
+        sendAddSupplementRequest();
+    }
+    private void setupMeasurements(){
+        binding.measurementsCardView.setVisibility(View.GONE);
+        binding.editMeasurementsButton.setOnClickListener(view -> {
+            if(binding.measurementsCardView.getVisibility()==View.VISIBLE) {
+                binding.measurementsCardView.setVisibility(View.GONE);
+            }else {binding.measurementsCardView.setVisibility(View.VISIBLE);}
+        });
+        binding.sendMeasurementsButton.setOnClickListener(view -> {
+            sendAddMeasurementRequest();
+        });
+    }
+    private void setupSupplements(){
+       binding.supplementsCardView.setVisibility(View.GONE);
+       binding.editSupplementsbutton.setOnClickListener(view -> {
+           if(binding.supplementsCardView.getVisibility()==View.VISIBLE) {
+               binding.supplementsCardView.setVisibility(View.GONE);
+           }else {binding.supplementsCardView.setVisibility(View.VISIBLE);}
+       });
+       binding.sendSupplementButton.setOnClickListener(view -> {
+           sendAddSupplementRequest();
+       });
+    }
+    private void sendAddSupplementRequest(){
+        ServerRequestHandler requestHandler = new ServerRequestHandler(ProfileActivity.this,new ServerRequestHandler.OnServerResponseListener() {
+            @Override
+            public void onResponse(Pair<Integer, JSONObject> responsePair) {
+                int statusCode = responsePair.first;
+                JSONObject response = responsePair.second;
+                try{
+                    String status = response.optString("status");
+                    Log.d("asd", "onResponse: "+response.toString());
+                    if (status.equals("OK")||statusCode==200||statusCode==201) {
+                    sendSupplemetnsRequest();
+                    } else {
+                        // Handle other cases if needed
+                        // For example, show an error message
+                        Toast.makeText(ProfileActivity.this, "Response not OK", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                    // Handle JSON parsing error
+                    Toast.makeText(ProfileActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(ProfileActivity.this, error, Toast.LENGTH_SHORT).show();
+            }
+        });
+        String url = "http://192.168.1.4:4000/user/suplement/";
+
+        // JSON payload
+        JSONObject jsonPayload = new JSONObject();
+        try {
+            jsonPayload.put("name", binding.supplementName.getText().toString());
+            jsonPayload.put("status", "off");
+            jsonPayload.put("dose", binding.supplementDose.getText().toString());
+            jsonPayload.put("frequency", "2");
+            jsonPayload.put("frequencyUnit", "day");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        // Convert JSON payload to string
+        String jsonString = jsonPayload.toString();
+        requestHandler.executeWithThreadPool(url,"POST",jsonString);
+
+    }
+    private void sendAddMeasurementRequest(){
+        ServerRequestHandler requestHandler = new ServerRequestHandler(ProfileActivity.this,new ServerRequestHandler.OnServerResponseListener() {
+            @Override
+            public void onResponse(Pair<Integer, JSONObject> responsePair) {
+                int statusCode = responsePair.first;
+                JSONObject response = responsePair.second;
+                try{
+                    String status = response.optString("status");
+                    Log.d("asd", "onResponse: "+response.toString());
+                    if (status.equals("OK")||statusCode==200||statusCode==201) {
+                        sendMeasurementRequest();
+                    } else {
+                        // Handle other cases if needed
+                        // For example, show an error message
+                        Toast.makeText(ProfileActivity.this, "Response not OK", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                    // Handle JSON parsing error
+                    Toast.makeText(ProfileActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(ProfileActivity.this, error, Toast.LENGTH_SHORT).show();
+            }
+        });
+        String url = "http://192.168.1.4:4000/user/measurements/";
+
+        // JSON payload
+        JSONObject jsonPayload = new JSONObject();
+        try {
+            jsonPayload.put("name", binding.measurementName.getText().toString());
+            jsonPayload.put("size", binding.measurementSize.getText().toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        // Convert JSON payload to string
+        String jsonString = jsonPayload.toString();
+        requestHandler.executeWithThreadPool(url,"POST",jsonString);
+
     }
     private void sendMeasurementRequest(){
         ServerRequestHandler requestHandler = new ServerRequestHandler(ProfileActivity.this,new ServerRequestHandler.OnServerResponseListener() {
