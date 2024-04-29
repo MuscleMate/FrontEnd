@@ -34,7 +34,10 @@ public class FriendsParser {
                         int levelPointsMax = rpObject.optInt("levelPointsMax");
                         rp = new RP(level, levelPoints, levelPointsMax);
                     } else {
-                        System.err.println("RP object is missing for a friend.");
+                        int level = 0;
+                        int levelPoints = 0;
+                        int levelPointsMax = 0;
+                        rp = new RP(level, levelPoints, levelPointsMax);
                     }
 
                     if (id != null && email != null && firstName != null && lastName != null && rp != null) {

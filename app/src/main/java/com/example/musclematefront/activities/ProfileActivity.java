@@ -357,7 +357,7 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             } else if (item.getItemId() == R.id.action_home) {
-                Intent intent = new Intent(ProfileActivity.this, NotificationsActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

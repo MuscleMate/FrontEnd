@@ -50,7 +50,7 @@ public class WorkoutsActivity extends AppCompatActivity {
         binding.bottomNavigation.setSelectedItemId(R.id.action_workouts);
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.action_home) {
-                Intent intent = new Intent(WorkoutsActivity.this, NotificationsActivity.class);
+                Intent intent = new Intent(WorkoutsActivity.this, HomeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
