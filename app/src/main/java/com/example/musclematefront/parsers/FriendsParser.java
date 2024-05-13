@@ -13,10 +13,14 @@ import java.util.List;
 public class FriendsParser {
     public static List<Friend> parseFriends(JSONObject jsonResponse) {
         List<Friend> friends = new ArrayList<>();
+        JSONArray friendsArray;
 
         try {
-            if (jsonResponse.has("friends")) {
-                JSONArray friendsArray = jsonResponse.getJSONArray("friends");
+            if (jsonResponse.has("friends")||jsonResponse.has("ranking")) {
+                if(jsonResponse.has("friends")){
+                     friendsArray = jsonResponse.getJSONArray("friends");
+                }else{ friendsArray = jsonResponse.getJSONArray("ranking");}
+
 
                 for (int i = 0; i < friendsArray.length(); i++) {
                     JSONObject friendObject = friendsArray.getJSONObject(i);
@@ -32,12 +36,14 @@ public class FriendsParser {
                         int level = rpObject.optInt("level");
                         int levelPoints = rpObject.optInt("levelPoints");
                         int levelPointsMax = rpObject.optInt("levelPointsMax");
-                        rp = new RP(level, levelPoints, levelPointsMax);
+                        int totalPoints = rpObject.optInt("totalPoints");
+                        rp = new RP(level, levelPoints, levelPointsMax,totalPoints);
                     } else {
                         int level = 0;
                         int levelPoints = 0;
                         int levelPointsMax = 0;
-                        rp = new RP(level, levelPoints, levelPointsMax);
+                        int totalPoints = 0;
+                        rp = new RP(level, levelPoints, levelPointsMax,totalPoints);
                     }
 
                     if (id != null && email != null && firstName != null && lastName != null && rp != null) {
