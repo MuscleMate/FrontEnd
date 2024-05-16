@@ -30,7 +30,7 @@
 
         <TextView
             style="@style/UsernameStyle"
-            android:id="@+id/userNameTextView"
+            android:id="@+id/hoursLeftTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -41,14 +41,14 @@
 
         <TextView
             style="@style/LevelInfoStyle"
-            android:id="@+id/levelTextView"
+            android:id="@+id/xpTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="2dp"
             android:text="@string/lvl"
             app:layout_constraintStart_toEndOf="@+id/userImageView"
-            app:layout_constraintTop_toBottomOf="@+id/userNameTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/hoursLeftTextView" />
 
         <Button
             style="@style/PrimaryButtonStyle"

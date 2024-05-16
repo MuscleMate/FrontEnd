@@ -11,41 +11,42 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musclematefront.R;
-import com.example.musclematefront.models.Friend;
+import com.example.musclematefront.models.RankingChallenges;
 
 import java.util.List;
 
-public class RankingExperienceAdapter extends RecyclerView.Adapter<RankingExperienceAdapter.ViewHolder>{
-    private List<Friend> friendsList;
+public class RankingChallengesAdapter extends RecyclerView.Adapter<RankingChallengesAdapter.ViewHolder>{
+    private List<RankingChallenges> challengesList;
     private Context context;
-    public RankingExperienceAdapter(List<Friend> friends){
-        this.friendsList = friends;
+    public RankingChallengesAdapter(List<RankingChallenges> challengesList){
+        this.challengesList = challengesList;
+
+
     }
-    public void setFriendsRequestList(List<Friend> friendList) {
-        this.friendsList = friendList;
+    public void setChallengesList(List<RankingChallenges> challengesList) {
+        this.challengesList = challengesList;
     }
     @Override
-    public RankingExperienceAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RankingChallengesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.ranking_card, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RankingExperienceAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RankingChallengesAdapter.ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
         TextView userNameTextView = cardView.findViewById(R.id.hoursLeftTextView);
         TextView levelTextView = cardView.findViewById(R.id.xpTextView);
         TextView rankingValueText = cardView.findViewById(R.id.participantsTextView);
-        userNameTextView.setText(friendsList.get(position).getFirstName());
-        levelTextView.setText(String.valueOf(friendsList.get(position).getRp().getLevel()));
-        rankingValueText.setText(String.valueOf(friendsList.get(position).getRp().getTotalPoints()));
-
+        userNameTextView.setText(String.format("%s %s", challengesList.get(position).getFirstName(), challengesList.get(position).getLastName()));
+        rankingValueText.setText(String.valueOf(challengesList.get(position).getChallengesCompleted()));
+        levelTextView.setVisibility(View.GONE);
     }
 
     @Override
     public int getItemCount() {
-        return friendsList.size();
+        return challengesList.size();
     }
 
     protected static class ViewHolder extends RecyclerView.ViewHolder {

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musclematefront.R;
 import com.example.musclematefront.models.Friend;
-import com.example.musclematefront.models.Notification;
 
 import java.util.List;
 
@@ -38,8 +36,8 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull FriendsAdapter.ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
-        TextView userNameTextView = cardView.findViewById(R.id.userNameTextView);
-        TextView levelTextView = cardView.findViewById(R.id.levelTextView);
+        TextView userNameTextView = cardView.findViewById(R.id.hoursLeftTextView);
+        TextView levelTextView = cardView.findViewById(R.id.xpTextView);
         userNameTextView.setText(friendsList.get(position).getFirstName());
         levelTextView.setText("lvl "+String.valueOf(friendsList.get(position).getRp().getLevel()));
     }

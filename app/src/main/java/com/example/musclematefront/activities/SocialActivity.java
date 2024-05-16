@@ -33,7 +33,7 @@ public class SocialActivity extends AppCompatActivity {
                    // Set the title for each tab
                    switch (position) {
                        case 0:
-                           tab.setText("Activity");
+                           tab.setText("Notifications");
                            break;
                        case 1:
                            tab.setText("Friends");

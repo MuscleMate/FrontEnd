@@ -36,7 +36,7 @@ public class FriendInviteAdapter extends RecyclerView.Adapter<FriendInviteAdapte
     @Override
     public void onBindViewHolder(@NonNull FriendInviteAdapter.ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
-        TextView userNameTextView = cardView.findViewById(R.id.userNameTextView);
+        TextView userNameTextView = cardView.findViewById(R.id.hoursLeftTextView);
         Button acceptButton = cardView.findViewById(R.id.friendsButton);
         userNameTextView.setText(friendsList.get(position).getFirstName());
         acceptButton.setOnClickListener(new View.OnClickListener() {

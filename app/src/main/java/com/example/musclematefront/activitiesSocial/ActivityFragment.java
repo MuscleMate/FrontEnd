@@ -18,13 +18,13 @@ public class ActivityFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_activity, container, false);
+        View rootView = inflater.inflate(R.layout.activity_notifications, container, false);
 
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if (activity != null) {
             Toolbar toolbar = activity.findViewById(R.id.toolbar);
             if (toolbar != null) {
-                toolbar.setTitle("Activity");
+                toolbar.setTitle("Notifications");
             }
         }
 

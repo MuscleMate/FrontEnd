@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.musclematefront.activitiesRankings.ChallengesCompletedFragment;
 import com.example.musclematefront.activitiesRankings.ExperienceFragment;
 import com.example.musclematefront.activitiesRankings.WonFragment;
 import com.example.musclematefront.activitiesSocial.ChallengesFragment;
@@ -23,7 +24,7 @@ public class RankingsAdapter extends FragmentStateAdapter {
             case 0:
                 return new ExperienceFragment();
             case 1:
-                return new ChallengesFragment();
+                return new ChallengesCompletedFragment();
             case 2:
                 return new WonFragment();
             default:
