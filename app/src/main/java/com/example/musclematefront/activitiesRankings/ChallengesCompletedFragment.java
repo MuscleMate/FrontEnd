@@ -1,6 +1,6 @@
 package com.example.musclematefront.activitiesRankings;
 
-import static com.example.musclematefront.parsers.FriendsParser.parseFriends;
+import static com.example.musclematefront.parsers.RankingChallengesParser.parseRankingChallenges;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -20,27 +20,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musclematefront.R;
 import com.example.musclematefront.ServerRequestHandler;
-import com.example.musclematefront.adapters.FriendRequestAdapter;
-import com.example.musclematefront.adapters.FriendsAdapter;
-import com.example.musclematefront.adapters.RankingExperienceAdapter;
-import com.example.musclematefront.databinding.FragmentExperienceBinding;
-import com.example.musclematefront.databinding.FragmentFriendsBinding;
-import com.example.musclematefront.models.Friend;
+import com.example.musclematefront.adapters.RankingChallengesAdapter;
+import com.example.musclematefront.databinding.FragmentCompletedChallengesBinding;
+import com.example.musclematefront.models.RankingChallenges;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExperienceFragment extends Fragment  {
-    RecyclerView experienceRecyclerView;
-    RankingExperienceAdapter rankingExperienceAdapter;
-    private List<Friend> friendsList = new ArrayList<>();
-    private FragmentExperienceBinding binding;
+public class ChallengesCompletedFragment extends Fragment {
+    RecyclerView challengesRecyclerView;
+    RankingChallengesAdapter rankingChallengesAdapter;
+    private List<RankingChallenges> rankingChallengesList = new ArrayList<>();
+    private FragmentCompletedChallengesBinding binding;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentExperienceBinding.inflate(inflater, container, false);
+        binding = FragmentCompletedChallengesBinding.inflate(inflater, container, false);
         View rootView = binding.getRoot();
 
         AppCompatActivity activity = (AppCompatActivity) getActivity();
@@ -50,19 +47,19 @@ public class ExperienceFragment extends Fragment  {
                 toolbar.setTitle("Challenges");
             }
         }
-        setupexperienceRecycler();
-        sendRequestExperience();
+        setupChallengesRecycler();
+        sendRequestChallenge();
         return rootView;
     }
-    private void setupexperienceRecycler() {
-        experienceRecyclerView = (RecyclerView) binding.experienceRecyclerView;
-        experienceRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        rankingExperienceAdapter = new RankingExperienceAdapter(friendsList);
-        experienceRecyclerView.setAdapter(rankingExperienceAdapter);
+    private void setupChallengesRecycler() {
+        challengesRecyclerView = (RecyclerView) binding.challengesRecyclerView;
+        challengesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        rankingChallengesAdapter = new RankingChallengesAdapter(rankingChallengesList);
+        challengesRecyclerView.setAdapter(rankingChallengesAdapter);
         // The list we passed to the mAdapter was changed so we have to notify it in order to update
-        rankingExperienceAdapter.notifyDataSetChanged();
+        rankingChallengesAdapter.notifyDataSetChanged();
     }
-    private void sendRequestExperience(){
+    private void sendRequestChallenge(){
         ServerRequestHandler requestHandler = new ServerRequestHandler(getContext(),new ServerRequestHandler.OnServerResponseListener() {
             @Override
             public void onResponse(Pair<Integer, JSONObject> responsePair) {
@@ -72,9 +69,9 @@ public class ExperienceFragment extends Fragment  {
                     String status = response.optString("status");
                     Log.d("asd", "onResponse: "+response.toString());
                     if (status.equals("OK")||statusCode==200||statusCode==201) {
-                        friendsList = parseFriends(response);
-                        rankingExperienceAdapter.setFriendsRequestList(friendsList);
-                        rankingExperienceAdapter.notifyDataSetChanged();
+                        rankingChallengesList = parseRankingChallenges(response);
+                        rankingChallengesAdapter.setChallengesList(rankingChallengesList);
+                        rankingChallengesAdapter.notifyDataSetChanged();
                     } else {
                         // Handle other cases if needed
                         // For example, show an error message
@@ -92,7 +89,7 @@ public class ExperienceFragment extends Fragment  {
                 Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/friends/rankings/exp";
+        String url = "http://192.168.1.4:4000/friends/rankings/challenges";
 
 
         requestHandler.executeWithThreadPool(url,"GET","");

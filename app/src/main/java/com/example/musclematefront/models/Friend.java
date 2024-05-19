@@ -70,7 +70,7 @@ public class Friend {
         String firstName = json.getString("firstName");
         String lastName = json.getString("lastName");
         JSONObject rpJson = json.getJSONObject("RP");
-        RP rp = new RP(rpJson.getInt("level"), rpJson.getInt("levelPoints"), rpJson.getInt("levelPointsMax"));
+        RP rp = new RP(rpJson.getInt("level"), rpJson.getInt("levelPoints"), rpJson.getInt("levelPointsMax"),rpJson.getInt("totalPoints"));
         return new Friend(id, email, firstName, lastName, rp);
     }
 }

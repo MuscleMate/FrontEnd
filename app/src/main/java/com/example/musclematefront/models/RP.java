@@ -4,11 +4,12 @@ public class RP {
     private int level;
     private int levelPoints;
     private int levelPointsMax;
-
-    public RP(int level, int levelPoints, int levelPointsMax) {
+    private int totalPoints;
+    public RP(int level, int levelPoints, int levelPointsMax,int totalPoints) {
         this.level = level;
         this.levelPoints = levelPoints;
         this.levelPointsMax = levelPointsMax;
+        this.totalPoints = totalPoints;
     }
 
     // Getters and setters
@@ -35,5 +36,12 @@ public class RP {
 
     public void setLevelPointsMax(int levelPointsMax) {
         this.levelPointsMax = levelPointsMax;
+    }
+    public int getTotalPoints() {
+        return totalPoints;
+    }
+
+    public void setTotalPoints(int totalPoints) {
+        this.totalPoints = totalPoints;
     }
 }

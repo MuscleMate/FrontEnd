@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 // JSON payload
                 JSONObject jsonPayload = new JSONObject();
                 try {
-                    jsonPayload.put("email", binding.editTextName.getText().toString());
+                        jsonPayload.put("email", binding.editTextName.getText().toString());
                         jsonPayload.put("password", binding.editTextPassword.getText().toString());
                 } catch (JSONException e) {
                     e.printStackTrace();

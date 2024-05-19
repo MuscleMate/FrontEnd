@@ -8,14 +8,15 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.musclematefront.R;
+import com.example.musclematefront.databinding.ActivityHomeBinding;
 import com.example.musclematefront.databinding.ActivityNotificationsBinding;
 
 public class HomeActivity extends AppCompatActivity {
-    ActivityNotificationsBinding binding;
+    ActivityHomeBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityNotificationsBinding.inflate(getLayoutInflater());
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
         setupAppBar();

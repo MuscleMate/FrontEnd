@@ -15,31 +15,32 @@ import com.example.musclematefront.models.Friend;
 
 import java.util.List;
 
-public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHolder>{
+public class RankingExperienceAdapter extends RecyclerView.Adapter<RankingExperienceAdapter.ViewHolder>{
     private List<Friend> friendsList;
     private Context context;
-    public FriendsAdapter(List<Friend> friends){
+    public RankingExperienceAdapter(List<Friend> friends){
         this.friendsList = friends;
-
-
     }
-    public void setFriendsList(List<Friend> friendList) {
+    public void setFriendsRequestList(List<Friend> friendList) {
         this.friendsList = friendList;
     }
     @Override
-    public FriendsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RankingExperienceAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.friends_card, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.ranking_card, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FriendsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RankingExperienceAdapter.ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
         TextView userNameTextView = cardView.findViewById(R.id.hoursLeftTextView);
         TextView levelTextView = cardView.findViewById(R.id.xpTextView);
+        TextView rankingValueText = cardView.findViewById(R.id.participantsTextView);
         userNameTextView.setText(friendsList.get(position).getFirstName());
-        levelTextView.setText("lvl "+String.valueOf(friendsList.get(position).getRp().getLevel()));
+        levelTextView.setText(String.valueOf(friendsList.get(position).getRp().getLevel()));
+        rankingValueText.setText(String.valueOf(friendsList.get(position).getRp().getTotalPoints()));
+
     }
 
     @Override

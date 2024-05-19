@@ -20,16 +20,15 @@
             android:layout_height="wrap_content">
 
             <TextView
-                style="@style/SecondaryTextStyleSnowBg"
                 android:id="@+id/textView2"
+                style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
                 android:text="@string/zeroNewRequests"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/friendsInviteRecyclerView" />
 
             <Button
                 style="@style/PrimaryButtonStyle"
@@ -88,6 +87,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/friendsRequestRecyclerView" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
@@ -105,14 +105,14 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        style="@style/SecondaryTextStyleSnowBg"
                         android:id="@+id/textView"
+                        style="@style/SecondaryTextStyleSnowBg"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_marginStart="20dp"
                         android:gravity="bottom"
-                        android:textSize="24sp"
                         android:text="@string/zeroFriends"
+                        android:textSize="24sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -145,20 +145,58 @@
                     </androidx.core.widget.NestedScrollView>
 
                     <Button
-                        style="@style/addFriendTextStyle"
                         android:id="@+id/button4"
+                        style="@style/addFriendTextStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_marginEnd="20dp"
-                        android:textSize="16sp"
                         android:gravity="bottom|center_horizontal"
                         android:text="@string/addFriend"
+                        android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/addSearchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add friend"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/searchTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/friendsInviteRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchTextView" />
+
+            <Button
+                android:id="@+id/searchFriendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Search"
+                app:layout_constraintBottom_toBottomOf="@+id/searchTextView"
+                app:layout_constraintStart_toEndOf="@+id/searchTextView"
+                app:layout_constraintTop_toTopOf="@+id/searchTextView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
