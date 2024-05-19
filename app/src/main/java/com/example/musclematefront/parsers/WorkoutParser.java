@@ -1,6 +1,10 @@
 package com.example.musclematefront.parsers;
 
+import static com.example.musclematefront.parsers.ExerciseParser.parseExercise;
+
+import com.example.musclematefront.models.Exercise;
 import com.example.musclematefront.models.Workout;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,53 +13,72 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 
 public class WorkoutParser {
 
-    public static List<Workout> parseWorkout(JSONObject jsonResponse) {
-        List<Workout> workouts = new ArrayList<>();
+    public static Workout parseWorkout(JSONObject jsonResponse) {
+        Workout workout = new Workout();
+        try {
+            workout.set_id(jsonResponse.getString("_id"));
+            workout.setTitle(jsonResponse.getString("title"));
+            workout.setDescription(jsonResponse.getString("description"));
+            workout.setOngoing(jsonResponse.getBoolean("ongoing"));
+            workout.setExercises(parseExercise(jsonResponse.getJSONArray("exercises")));
+            workout.setUser(new HashMap<String, String>() {{
+                put(jsonResponse.getJSONObject("user").getString("_id"),
+                jsonResponse.getJSONObject("user").getString("firstName"));
+                            }}
+            );
+            workout.setEquipment(jsonToStringList(jsonResponse.getJSONArray("equipment")));
+            workout.setCompany(jsonToStringMap(jsonResponse.getJSONArray("company")));
+            workout.setFavourite(jsonResponse.getBoolean("favourite"));
+            workout.setAccess(jsonToStringMap(jsonResponse.getJSONArray("access")));
+            workout.setDate(jsonResponse.getString("date"));
+            workout.setTime(jsonResponse.getString("time"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return workout;
+    }
 
-        try{
-            JSONArray workoutArray = jsonResponse.getJSONArray("workouts");
-
-            for(int i = 0; i< workoutArray.length(); i++){
-                JSONObject workoutObject = workoutArray.getJSONObject(i);
-                if(workoutObject.has("_id")){
-                     String _id = workoutObject.getString("_id");
-                     String title = workoutObject.getString("title");
-                     String description = workoutObject.getString("description");
-                     int duration = workoutObject.getInt("duration");
-                     Date date = parseDate(workoutObject.getString("date"));
-                     List<String> exercises; // TODO: Add implementation after discusing what exercises really is
-                     String user = workoutObject.getString("user");
-                     List<String> equipment;// TODO: Add implementation after discusing what equipment really is
-                     List<String> company;// TODO: Add implementation after discusing what company really is
-                     boolean favourite = workoutObject.getBoolean("favourite");
-                     List<String> access;// TODO: Add implementation after discusing what access really is
-                     List<String> temporaryEmptyList = new ArrayList<String>();
-
-                Workout workout = new Workout(_id, title, description, duration, date, temporaryEmptyList, user, temporaryEmptyList, temporaryEmptyList,favourite, temporaryEmptyList);
-                workouts.add(workout);
-                }else {
-                    System.err.println("Notification is missing required fields: _id");
-                }
+    private static List<String> jsonToStringList(JSONArray tab) {
+        List<String> list = new ArrayList<>();
+        try {
+            for (int i = 0; i < tab.length(); i++) {
+                list.add(tab.getString(i));
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        return list;
+    }
 
-    return workouts;
-    }
-    private static Date parseDate(String dateString) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+    private static HashMap<String, String> jsonToStringMap(JSONArray tab){
+        HashMap<String,String> map = new HashMap<>();
         try {
-            return dateFormat.parse(dateString);
-        } catch (ParseException e) {
+            for (int i = 0; i < tab.length(); i++) {
+                JSONObject companionObject = tab.getJSONObject(i);
+                if(companionObject.has("_id")){
+                    map.put(
+                            companionObject.getString("_id"),
+                            companionObject.getString("firstName")
+                    );
+
+                }else{
+                    System.err.println("Notification is missing required fields: _id");
+                }
+
+            }
+        } catch (JSONException e) {
             e.printStackTrace();
-            return null;
         }
+        return map;
+
     }
+
 }
+
 

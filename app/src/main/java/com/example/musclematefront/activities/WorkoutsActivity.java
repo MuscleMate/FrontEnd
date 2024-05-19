@@ -1,6 +1,6 @@
 package com.example.musclematefront.activities;
 
-import static com.example.musclematefront.parsers.WorkoutParser.parseWorkout;
+import static com.example.musclematefront.parsers.WorkoutsParser.parseWorkouts;
 
 import android.content.Context;
 import android.content.Intent;
@@ -34,7 +34,6 @@ public class WorkoutsActivity extends AppCompatActivity {
     RecyclerView workoutRecyclerView;
     WorkoutsAdapter workoutsAdapter;
     Context context;
-    private static final String ACTIVITY_NAME = "Workout";
     private static final String USER_PREFS = "UserPrefs";
     private static final String USER_KEY = "User";
     private String userId;
@@ -60,10 +59,9 @@ public class WorkoutsActivity extends AppCompatActivity {
     private void setupAppBar() {
         setSupportActionBar(binding.toolbar.getRoot());
         getSupportActionBar().setTitle("Workouts");
-        ImageView notificationIcon = findViewById(R.id.notificationIcon);
+        ImageView notificationIcon = findViewById(R.id.notification_icon);
         TextView notificationBadge = findViewById(R.id.notification_badge);
-        TextView activityName = findViewById(R.id.activityName);
-        activityName.setText(ACTIVITY_NAME);
+
         notificationIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,7 +129,7 @@ public class WorkoutsActivity extends AppCompatActivity {
                     String status = response.optString("status");
                     Log.d("asd", "onResponse: "+response.toString());
                     if (status.equals("OK")||statusCode==200||statusCode==201) {
-                        workoutList = parseWorkout(response);
+                        workoutList = parseWorkouts(response);
                         if(workoutList.isEmpty()) setupClickHereTextView();
                       else{
                            workoutsAdapter.setWorkoutList(workoutList);
@@ -155,7 +153,7 @@ public class WorkoutsActivity extends AppCompatActivity {
                 Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = String.format("http://192.168.1.9:4000/workouts/%s",userId);
+        String url = String.format("http://192.168.1.9:4000/workouts");
 
 
         requestHandler.executeWithThreadPool(url,"GET","");
@@ -170,4 +168,6 @@ public class WorkoutsActivity extends AppCompatActivity {
         // The list we passed to the mAdapter was changed so we have to notify it in order to update
         workoutsAdapter.notifyDataSetChanged();
     }
+
+
 }

@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <include
         android:id="@+id/toolbar"
-        layout="@layout/app_bar_layout" />
+        layout="@layout/app_bar_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -25,155 +30,188 @@
             android:layout_height="wrap_content">
 
             <TextView
-                style="@style/ExerciseHeader"
-                android:textSize="24sp"
                 android:id="@+id/workoutTitle"
+                style="@style/ExerciseHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="34dp"
-                tools:layout_editor_absoluteY="35dp" />
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/isFavImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/not_fav"
-                tools:layout_editor_absoluteX="355dp"
-                tools:layout_editor_absoluteY="35dp" />
+                android:layout_marginEnd="24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/workoutTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/workoutTitle"
+                app:srcCompat="@drawable/not_fav" />
 
             <ImageView
                 android:id="@+id/clockIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/clock"
-                tools:layout_editor_absoluteX="34dp"
-                tools:layout_editor_absoluteY="70dp" />
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutTitle"
+                app:srcCompat="@drawable/clock" />
 
             <TextView
                 android:id="@+id/timeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="59dp"
-                tools:layout_editor_absoluteY="67dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/clockIcon"
+                app:layout_constraintStart_toEndOf="@+id/clockIcon" />
 
             <TextView
                 android:id="@+id/durationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="125dp"
-                tools:layout_editor_absoluteY="67dp" />
+                app:layout_constraintStart_toEndOf="@+id/timeTextView"
+                app:layout_constraintTop_toTopOf="@+id/timeTextView" />
 
             <TextView
                 android:id="@+id/amountTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="190dp"
-                tools:layout_editor_absoluteY="67dp" />
+                app:layout_constraintStart_toEndOf="@+id/durationTextView"
+                app:layout_constraintTop_toTopOf="@+id/durationTextView" />
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/fire"
-                tools:layout_editor_absoluteX="34dp"
-                tools:layout_editor_absoluteY="107dp" />
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clockIcon"
+                app:srcCompat="@drawable/fire" />
 
             <TextView
-                style="@style/ExerciseHeader"
                 android:id="@+id/textView8"
+                style="@style/ExerciseHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:text="Exercise set"
-                tools:layout_editor_absoluteX="63dp"
-                tools:layout_editor_absoluteY="109dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                app:layout_constraintStart_toEndOf="@+id/imageView4" />
 
             <TextView
                 android:id="@+id/saveTemplate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
                 android:text="Save as template"
-                tools:layout_editor_absoluteX="271dp"
-                tools:layout_editor_absoluteY="109dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/exerciseRecyclerView"
                 android:layout_width="346dp"
                 android:layout_height="84dp"
-                tools:layout_editor_absoluteX="34dp"
-                tools:layout_editor_absoluteY="142dp" />
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/dumbbell"
-                tools:layout_editor_absoluteX="33dp"
-                tools:layout_editor_absoluteY="271dp" />
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="45dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseRecyclerView"
+                app:srcCompat="@drawable/dumbbell" />
 
             <TextView
-                style="@style/ExerciseHeader"
                 android:id="@+id/textView10"
+                style="@style/ExerciseHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:text="Equipment"
-                tools:layout_editor_absoluteX="63dp"
-                tools:layout_editor_absoluteY="271dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                app:layout_constraintStart_toEndOf="@+id/imageView5" />
 
             <TextView
                 android:id="@+id/equipment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="10dp"
                 android:text="No equipment needed"
-                tools:layout_editor_absoluteX="34dp"
-                tools:layout_editor_absoluteY="311dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/equipmentRecyclerView"
                 android:layout_width="343dp"
                 android:layout_height="74dp"
-                tools:layout_editor_absoluteX="33dp"
-                tools:layout_editor_absoluteY="311dp" />
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/person"
-                tools:layout_editor_absoluteX="33dp"
-                tools:layout_editor_absoluteY="425dp" />
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="45dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/equipmentRecyclerView"
+                app:srcCompat="@drawable/person" />
 
             <TextView
-                style="@style/ExerciseHeader"
                 android:id="@+id/textView12"
+                style="@style/ExerciseHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:text="Company"
-                tools:layout_editor_absoluteX="63dp"
-                tools:layout_editor_absoluteY="424dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                app:layout_constraintStart_toEndOf="@+id/imageView6" />
 
             <TextView
                 android:id="@+id/assignees"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="10dp"
                 android:text="Nobody is assigned."
-                tools:layout_editor_absoluteX="31dp"
-                tools:layout_editor_absoluteY="457dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <TextView
-                android:id="@+id/assignees"
+                android:id="@+id/invite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="34dp"
                 android:text="Invite friends"
-                tools:layout_editor_absoluteX="157dp"
-                tools:layout_editor_absoluteY="457dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView12"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/companyRecyclerView"
                 android:layout_width="343dp"
                 android:layout_height="73dp"
-                tools:layout_editor_absoluteX="31dp"
-                tools:layout_editor_absoluteY="457dp" />
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <TextView
                 android:id="@+id/deleteView"

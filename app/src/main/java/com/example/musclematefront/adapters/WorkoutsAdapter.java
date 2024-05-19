@@ -1,6 +1,7 @@
 package com.example.musclematefront.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musclematefront.R;
+import com.example.musclematefront.activities.WorkoutPreviewActivity;
+import com.example.musclematefront.activities.WorkoutsActivity;
 import com.example.musclematefront.models.Workout;
 
 import java.util.List;
@@ -39,8 +42,6 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull WorkoutsAdapter.ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
         TextView dateTextView = cardView.findViewById(R.id.dateTextView);
         TextView timeTextView = cardView.findViewById(R.id.timeTextView);
         TextView nameTextView = cardView.findViewById(R.id.nameTextView);
@@ -48,15 +49,25 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
         TextView amountTextView = cardView.findViewById(R.id.amountTextView);
         ImageView favImageView = cardView.findViewById(R.id.favImageView);
 
-        dateTextView.setText(dateFormat.format(workoutsList.get(position).getDate()));
-        timeTextView.setText(timeFormat.format(workoutsList.get(position).getDate()));
+        dateTextView.setText(workoutsList.get(position).getDate());
+        timeTextView.setText(workoutsList.get(position).getTime());
         nameTextView.setText(workoutsList.get(position).getTitle());
         durationTextView.setText(String.valueOf(workoutsList.get(position).getDuration())+" mins");
-        amountTextView.setText(String.format("%d exercises",workoutsList.get(position).getExercises().size()));
+        amountTextView.setText(String.format("%d exercises",workoutsList.get(position).getExerciseAmount()));
         if(workoutsList.get(position).isFavourite()){
             favImageView.setImageResource(R.drawable.fav);
 
         }else{favImageView.setImageResource(R.drawable.not_fav);}
+
+        cardView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(context, WorkoutPreviewActivity.class);
+                intent.putExtra("id", workoutsList.get(position).get_id());
+                context.startActivity(intent);
+
+        }
+        });
     }
 
     @Override

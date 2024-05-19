@@ -41,7 +41,14 @@ public class ExerciseSetAdapter extends RecyclerView.Adapter<ExerciseSetAdapter.
         TextView exerciseSetAmount = cardView.findViewById(R.id.exerciseSetAmount);
         TextView exerciseTime = cardView.findViewById(R.id.exerciseTime);
 
-
+        exerciseTitle.setText(exerciseList.get(position).getTitle());
+        exerciseMusclePart.setText(exerciseList.get(position).getType());
+        exerciseSetAmount.setText(String.valueOf(exerciseList.get(position).getSets()));
+        if(exerciseList.get(position).getDuration() == 0){
+            exerciseTime.setText(String.valueOf(exerciseList.get(position).getWeight()) +" kg, "+String.valueOf(exerciseList.get(position).getReps())+ " reps");
+        }else{
+            exerciseTime.setText(String.valueOf(exerciseList.get(position).getDuration())+" seconds");
+        }
 
     }
 
