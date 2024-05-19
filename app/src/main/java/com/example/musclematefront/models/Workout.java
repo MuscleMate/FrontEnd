@@ -1,36 +1,68 @@
 package com.example.musclematefront.models;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class Workout {
     private String _id;
     private String title;
     private String description;
+    private boolean ongoing;
+    private List<Exercise> exercises;
+    private int exerciseAmount;
     private int duration;
-    private Date date;
-    private List<String> exercises;
-    private String user; // Assuming user is represented by their _id
+    private HashMap<String, String> user; // Assuming user is represented by their _id
     private List<String> equipment;
-    private List<String> company; // Assuming company is represented by their _id
+    private HashMap<String, String> company; // Assuming company is represented by their _id
     private boolean favourite;
-    private List<String> access; // Assuming access is represented by user _id
+    private HashMap<String, String> access; // Assuming access is represented by user _id
+    private String date;
+    private String time;
+
+
+
 
     // Constructor with all fields
-    public Workout(String _id, String title, String description, int duration, Date date,
-                   List<String> exercises, String user, List<String> equipment,
-                   List<String> company, boolean favourite, List<String> access) {
-        this._id = _id;
+    public Workout(String id, String title, String description, boolean ongoing, List<Exercise> exercises,
+                   HashMap<String, String> user, List<String> equipment, HashMap<String, String> company, boolean favourite,
+                   HashMap<String, String> access, String date, String time) {
+        this._id = id;
         this.title = title;
         this.description = description;
-        this.duration = duration;
-        this.date = date;
+        this.ongoing = ongoing;
         this.exercises = exercises;
+        this.exerciseAmount = this.exercises.size();
+        this.duration = 0;
         this.user = user;
         this.equipment = equipment;
         this.company = company;
         this.favourite = favourite;
         this.access = access;
+        this.date = date;
+        this.time = time;
     }
+
+    public Workout(String _id, String title, int duration, int exercises, boolean favourite, String date, String time){
+
+        this._id = _id;
+        this.title = title;
+        this.description = "";
+        this.exercises = new ArrayList<>();
+        this.exerciseAmount = exercises;
+        this.duration = duration;
+        this.user = new HashMap<String, String>();
+        this.equipment = new ArrayList<>();
+        this.company = new HashMap<String, String>();
+        this.favourite = favourite;
+        this.access = new HashMap<String, String>();
+        this.date = date;
+        this.time = time;
+    }
+    public Workout(){
+    }
+
 
     // Getters and setters for each field
     public String get_id() {
@@ -65,27 +97,27 @@ public class Workout {
         this.duration = duration;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public List<String> getExercises() {
+    public List<Exercise> getExercises() {
         return exercises;
     }
 
-    public void setExercises(List<String> exercises) {
+    public void setExercises(List<Exercise> exercises) {
         this.exercises = exercises;
     }
 
-    public String getUser() {
+    public HashMap<String, String> getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(HashMap<String, String> user) {
         this.user = user;
     }
 
@@ -97,11 +129,11 @@ public class Workout {
         this.equipment = equipment;
     }
 
-    public List<String> getCompany() {
+    public HashMap<String, String> getCompany() {
         return company;
     }
 
-    public void setCompany(List<String> company) {
+    public void setCompany(HashMap<String, String> company) {
         this.company = company;
     }
 
@@ -113,11 +145,35 @@ public class Workout {
         this.favourite = favourite;
     }
 
-    public List<String> getAccess() {
+    public HashMap<String, String> getAccess() {
         return access;
     }
 
-    public void setAccess(List<String> access) {
+    public void setAccess(HashMap<String, String> access) {
         this.access = access;
+    }
+
+    public boolean isOngoing() {
+        return ongoing;
+    }
+
+    public void setOngoing(boolean ongoing) {
+        this.ongoing = ongoing;
+    }
+
+    public int getExerciseAmount() {
+        return exerciseAmount;
+    }
+
+    public void setExerciseAmount(int exerciseAmount) {
+        this.exerciseAmount = exerciseAmount;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

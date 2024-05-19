@@ -70,7 +70,7 @@ public class TellMoreActivity extends AppCompatActivity {
                         Toast.makeText(TellMoreActivity.this, error, Toast.LENGTH_SHORT).show();
                     }
                 });
-                String url = "http://192.168.1.4:4000/auth/register/";
+                String url = "http://192.168.1.9:4000/auth/register/";
 
                 // JSON payload
                 JSONObject jsonPayload = new JSONObject();

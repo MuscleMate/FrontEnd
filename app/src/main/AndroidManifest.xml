@@ -56,6 +56,10 @@
             android:exported="true">
         </activity>
         <activity
+            android:name=".activities.WorkoutPreviewActivity"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".activities.ChallengeActivity"
             android:exported="true">
         </activity>
