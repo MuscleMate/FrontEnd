@@ -36,8 +36,8 @@ public class ChallengeParser {
                     Date startDate = parseDate(challengeObject.getString("startDate"));
                     Date endDate = parseDate(challengeObject.getString("endDate"));
                     int version = challengeObject.getInt("__v");
-
-                    Challenge challenge = new Challenge(id, title, description, duration, goal, target, difficulty, status, startDate, endDate, version);
+                    int exp = 0;
+                    Challenge challenge = new Challenge(id, title, description, duration, goal, target, difficulty, status, startDate, endDate, version,exp);
                     challenges.add(challenge);
                 } else {
                     System.err.println("Challenge is missing required fields.");

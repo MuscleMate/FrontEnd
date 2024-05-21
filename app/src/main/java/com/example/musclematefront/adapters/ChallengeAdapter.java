@@ -42,6 +42,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.View
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ChallengeActivity.class);
+                intent.putExtra("ID",challengesList.get(holder.getAdapterPosition()).getId());
                 context.startActivity(intent);
             }
         });

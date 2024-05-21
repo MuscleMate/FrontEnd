@@ -14,8 +14,9 @@ public class Challenge {
     private Date startDate;
     private Date endDate;
     private int version;
+    private int exp;
 
-    public Challenge(String id, String title, String description, int duration, String goal, int target, String difficulty, String status, Date startDate, Date endDate, int version) {
+    public Challenge(String id, String title, String description, int duration, String goal, int target, String difficulty, String status, Date startDate, Date endDate, int version, int exp) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -27,6 +28,7 @@ public class Challenge {
         this.startDate = startDate;
         this.endDate = endDate;
         this.version = version;
+        this.exp = exp;
     }
 
     // Getters and setters
@@ -37,6 +39,13 @@ public class Challenge {
 
     public void setId(String id) {
         this.id = id;
+    }
+    public int getExp() {
+        return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
     }
 
     public String getTitle() {
