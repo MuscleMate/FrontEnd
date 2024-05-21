@@ -1,27 +1,59 @@
 package com.example.musclematefront.activities;
 
+import static com.example.musclematefront.parsers.WorkoutsParser.parseWorkouts;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musclematefront.R;
+import com.example.musclematefront.ServerRequestHandler;
+import com.example.musclematefront.adapters.WorkoutsAdapter;
 import com.example.musclematefront.databinding.ActivityWorkoutsBinding;
+import com.example.musclematefront.models.Workout;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WorkoutsActivity extends AppCompatActivity {
     ActivityWorkoutsBinding binding;
+    RecyclerView workoutRecyclerView;
+    WorkoutsAdapter workoutsAdapter;
+    Context context;
+    private static final String USER_PREFS = "UserPrefs";
+    private static final String USER_KEY = "User";
+    private String userId;
 
+    private List<Workout> workoutList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityWorkoutsBinding.inflate(getLayoutInflater());
+        context = WorkoutsActivity.this;
+        userId = context.getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE).getString(USER_KEY,"");
         View view = binding.getRoot();
         setContentView(view);
         setupAppBar();
         setupBottomNavigation();
+        setupWorkoutRecycler();
+        sendRequest();
+
+
+
     }
 
     private void setupAppBar() {
@@ -29,6 +61,7 @@ public class WorkoutsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Workouts");
         ImageView notificationIcon = findViewById(R.id.notification_icon);
         TextView notificationBadge = findViewById(R.id.notification_badge);
+
         notificationIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +77,20 @@ public class WorkoutsActivity extends AppCompatActivity {
         } else {
             notificationBadge.setVisibility(View.GONE);
         }
+    }
+
+    private void setupClickHereTextView(){
+        TextView textView = binding.clickHere;
+        SpannableStringBuilder ssb = new SpannableStringBuilder();
+        ssb.append("Click  ");
+        ssb.setSpan(
+                new ImageSpan(this, R.drawable.add),
+                ssb.length()-1,
+                ssb.length(),
+                0
+        );
+        ssb.append("  to add workout");
+        textView.setText(ssb);
     }
 
     private void setupBottomNavigation() {
@@ -71,4 +118,56 @@ public class WorkoutsActivity extends AppCompatActivity {
             return true;
         });
     }
+
+    private void sendRequest(){
+        ServerRequestHandler requestHandler = new ServerRequestHandler(context,new ServerRequestHandler.OnServerResponseListener() {
+            @Override
+            public void onResponse(Pair<Integer, JSONObject> responsePair) {
+                int statusCode = responsePair.first;
+                JSONObject response = responsePair.second;
+                try{
+                    String status = response.optString("status");
+                    Log.d("asd", "onResponse: "+response.toString());
+                    if (status.equals("OK")||statusCode==200||statusCode==201) {
+                        workoutList = parseWorkouts(response);
+                        if(workoutList.isEmpty()) setupClickHereTextView();
+                      else{
+                           workoutsAdapter.setWorkoutList(workoutList);
+                           workoutsAdapter.notifyDataSetChanged();
+                       }
+
+                    } else {
+                        // Handle other cases if needed
+                        // For example, show an error message
+                        Toast.makeText(context, "Response not OK", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                    // Handle JSON parsing error
+                    Toast.makeText(context, "Error parsing response", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
+            }
+        });
+        String url = String.format("http://192.168.1.9:4000/workouts");
+
+
+        requestHandler.executeWithThreadPool(url,"GET","");
+    }
+    private void setupWorkoutRecycler(){
+
+        workoutRecyclerView = (RecyclerView) binding.workoutRecyclerView;
+        workoutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        workoutsAdapter = new WorkoutsAdapter(workoutList);
+        workoutRecyclerView.setAdapter(workoutsAdapter);
+        // The list we passed to the mAdapter was changed so we have to notify it in order to update
+        workoutsAdapter.notifyDataSetChanged();
+    }
+
+
 }
