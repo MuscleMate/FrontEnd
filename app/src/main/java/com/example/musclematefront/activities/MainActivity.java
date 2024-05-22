@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
                     }
                 });
-                String url = "http://192.168.1.9:4000/auth/login/";
+                String url = "http://192.168.1.4:4000/auth/login/";
 
                 // JSON payload
                 JSONObject jsonPayload = new JSONObject();

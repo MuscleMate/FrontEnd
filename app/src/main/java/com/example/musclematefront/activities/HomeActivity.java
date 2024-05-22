@@ -1,15 +1,26 @@
 package com.example.musclematefront.activities;
 
+import static com.example.musclematefront.parsers.RpParser.parseRP;
+import static com.example.musclematefront.parsers.SingleChallengeParser.parseSingleChallenge;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.musclematefront.R;
+import com.example.musclematefront.ServerRequestHandler;
 import com.example.musclematefront.databinding.ActivityHomeBinding;
 import com.example.musclematefront.databinding.ActivityNotificationsBinding;
+import com.example.musclematefront.models.Challenge;
+import com.example.musclematefront.models.RP;
+
+import org.json.JSONObject;
 
 public class HomeActivity extends AppCompatActivity {
     ActivityHomeBinding binding;
@@ -21,6 +32,42 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(view);
         setupAppBar();
         setupBottomNavigation();
+
+        sendMainRequest();
+    }
+    private void sendMainRequest(){
+        ServerRequestHandler requestHandler = new ServerRequestHandler(HomeActivity.this,new ServerRequestHandler.OnServerResponseListener() {
+            @Override
+            public void onResponse(Pair<Integer, JSONObject> responsePair) {
+                int statusCode = responsePair.first;
+                JSONObject response = responsePair.second;
+                try{
+                    String status = response.optString("status");
+                    Log.d("asd", "onResponse: "+response.toString());
+                    if (status.equals("OK")||statusCode==200||statusCode==201) {
+                        RP rp = parseRP(response);
+                        binding.levelTextView.setText("Level "+rp.getLevel());
+                    } else {
+                        // Handle other cases if needed
+                        // For example, show an error message
+                        Toast.makeText(HomeActivity.this, "Response not OK", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                    // Handle JSON parsing error
+                    Toast.makeText(HomeActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(HomeActivity.this, error, Toast.LENGTH_SHORT).show();
+            }
+        });
+        String url = "http://192.168.1.4:4000/main";
+
+
+        requestHandler.executeWithThreadPool(url,"GET","");
     }
 
     private void setupAppBar() {
