@@ -61,6 +61,16 @@
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/homeChallengeRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

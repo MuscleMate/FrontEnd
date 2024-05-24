@@ -1,5 +1,9 @@
 package com.example.musclematefront.activities;
 
+import static com.example.musclematefront.parsers.ChallengeParser.parseChallenges;
+import static com.example.musclematefront.parsers.HomeChallengeParser.parseHomeChallenges;
+import static com.example.musclematefront.parsers.NotificationParser.parseNotifications;
+import static com.example.musclematefront.parsers.RankingChallengesParser.parseRankingChallenges;
 import static com.example.musclematefront.parsers.RpParser.parseRP;
 import static com.example.musclematefront.parsers.SingleChallengeParser.parseSingleChallenge;
 
@@ -12,18 +16,31 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musclematefront.R;
 import com.example.musclematefront.ServerRequestHandler;
+import com.example.musclematefront.adapters.HomeChallengeAdapter;
+import com.example.musclematefront.adapters.NotificationsAdapter;
 import com.example.musclematefront.databinding.ActivityHomeBinding;
 import com.example.musclematefront.databinding.ActivityNotificationsBinding;
 import com.example.musclematefront.models.Challenge;
+import com.example.musclematefront.models.HomeChallenge;
+import com.example.musclematefront.models.Notification;
 import com.example.musclematefront.models.RP;
+import com.example.musclematefront.models.RankingChallenges;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeActivity extends AppCompatActivity {
     ActivityHomeBinding binding;
+    RecyclerView homeChallengesRecyclerView;
+    HomeChallengeAdapter homeChallengeAdapter;
+    List<HomeChallenge> challengeList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(view);
         setupAppBar();
         setupBottomNavigation();
-
+        setupHomeChallengeRecycler();
         sendMainRequest();
     }
     private void sendMainRequest(){
@@ -47,6 +64,12 @@ public class HomeActivity extends AppCompatActivity {
                     if (status.equals("OK")||statusCode==200||statusCode==201) {
                         RP rp = parseRP(response);
                         binding.levelTextView.setText("Level "+rp.getLevel());
+                        binding.progressBar.setProgress(rp.getLevelPoints());
+                        binding.progressBar.setMax(rp.getLevelPointsMax());
+                        binding.progressBar.setMin(0);
+                        challengeList = parseHomeChallenges(response);
+                        homeChallengeAdapter.setChallengesList(challengeList);
+                        homeChallengeAdapter.notifyDataSetChanged();
                     } else {
                         // Handle other cases if needed
                         // For example, show an error message
@@ -69,7 +92,16 @@ public class HomeActivity extends AppCompatActivity {
 
         requestHandler.executeWithThreadPool(url,"GET","");
     }
+    private void setupHomeChallengeRecycler(){
 
+        homeChallengesRecyclerView = (RecyclerView) binding.homeChallengeRecyclerView;
+        homeChallengesRecyclerView.setLayoutManager(new LinearLayoutManager(HomeActivity.this, LinearLayoutManager.HORIZONTAL, false));
+
+        homeChallengeAdapter = new HomeChallengeAdapter(challengeList);
+        homeChallengesRecyclerView.setAdapter(homeChallengeAdapter);
+        // The list we passed to the mAdapter was changed so we have to notify it in order to update
+        homeChallengeAdapter.notifyDataSetChanged();
+    }
     private void setupAppBar() {
         setSupportActionBar(binding.toolbar.getRoot());
         getSupportActionBar().setTitle("Home");
