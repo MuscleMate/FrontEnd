@@ -87,7 +87,7 @@ public class HomeActivity extends AppCompatActivity {
                 Toast.makeText(HomeActivity.this, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/main";
+        String url = "http://192.168.1.11:4000/main";
 
 
         requestHandler.executeWithThreadPool(url,"GET","");
@@ -126,6 +126,11 @@ public class HomeActivity extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }else if(item.getItemId()==R.id.action_social){
                 Intent intent = new Intent(HomeActivity.this, SocialActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }else if(item.getItemId()==R.id.action_add){
+                Intent intent = new Intent(HomeActivity.this, AddWorkoutActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

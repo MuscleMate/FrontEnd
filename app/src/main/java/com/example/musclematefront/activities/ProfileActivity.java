@@ -114,7 +114,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(ProfileActivity.this, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/user/suplement/";
+        String url = "http://192.168.1.11:4000/user/suplement/";
 
         // JSON payload
         JSONObject jsonPayload = new JSONObject();
@@ -161,7 +161,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(ProfileActivity.this, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/user/measurements/";
+        String url = "http://192.168.1.11:4000/user/measurements/";
 
         // JSON payload
         JSONObject jsonPayload = new JSONObject();
@@ -207,7 +207,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(ProfileActivity.this, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/user/measurements";
+        String url = "http://192.168.1.11:4000/user/measurements";
 
 
         requestHandler.executeWithThreadPool(url,"GET","");
@@ -258,7 +258,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(ProfileActivity.this, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/user/suplement/all";
+        String url = "http://192.168.1.11:4000/user/suplement/all";
 
 
         requestHandler.executeWithThreadPool(url,"GET","");
@@ -294,7 +294,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
-        String url = "http://192.168.1.4:4000/user/firstName";
+        String url = "http://192.168.1.11:4000/user/firstName";
         requestHandler.executeWithThreadPool(url,"GET","");
 
     }
@@ -329,7 +329,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
-        String url = "http://192.168.1.4:4000/user/lastName";
+        String url = "http://192.168.1.11:4000/user/lastName";
         requestHandler.executeWithThreadPool(url,"GET","");
 
     }
@@ -358,6 +358,11 @@ public class ProfileActivity extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             } else if (item.getItemId() == R.id.action_home) {
                 Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }else if(item.getItemId()==R.id.action_add){
+                Intent intent = new Intent(ProfileActivity.this, AddWorkoutActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

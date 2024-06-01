@@ -142,7 +142,7 @@ public class FriendsFragment extends Fragment {
                 Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/friends/search?count=20/";
+        String url = "http://192.168.1.11:4000/friends/search?count=20/";
 
         // JSON payload
         JSONObject jsonPayload = new JSONObject();
@@ -184,7 +184,7 @@ public class FriendsFragment extends Fragment {
                 Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/friends/request/send";
+        String url = "http://192.168.1.11:4000/friends/request/send";
 
         // JSON payload
         JSONObject jsonPayload = new JSONObject();
@@ -228,7 +228,7 @@ public class FriendsFragment extends Fragment {
                 Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/friends";
+        String url = "http://192.168.1.11:4000/friends";
 
 
         requestHandler.executeWithThreadPool(url,"GET","");
@@ -263,7 +263,7 @@ public class FriendsFragment extends Fragment {
                 Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/friends/request/received";
+        String url = "http://192.168.1.11:4000/friends/request/received";
 
 
         requestHandler.executeWithThreadPool(url,"GET","");
@@ -295,7 +295,7 @@ public class FriendsFragment extends Fragment {
                 Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/friends/request/accept";
+        String url = "http://192.168.1.11:4000/friends/request/accept";
         JSONObject jsonObject = new JSONObject();
         try {
             // Put the ID into the JSON object
@@ -334,7 +334,7 @@ public class FriendsFragment extends Fragment {
                 Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/friends/request/deny";
+        String url = "http://192.168.1.11:4000/friends/request/deny";
         JSONObject jsonObject = new JSONObject();
         try {
             // Put the ID into the JSON object

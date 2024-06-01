@@ -71,7 +71,7 @@ public class ChallengeActivity extends AppCompatActivity {
                 Toast.makeText(ChallengeActivity.this, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/challenges/"+id;
+        String url = "http://192.168.1.11:4000/challenges/"+id;
 
 
         requestHandler.executeWithThreadPool(url,"GET","");

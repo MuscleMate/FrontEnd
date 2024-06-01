@@ -94,7 +94,7 @@ public class ChallengesFragment extends Fragment {
                 Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/challenges";
+        String url = "http://192.168.1.11:4000/challenges";
 
 
         requestHandler.executeWithThreadPool(url,"GET","");

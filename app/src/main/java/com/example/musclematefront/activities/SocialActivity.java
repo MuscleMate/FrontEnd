@@ -75,6 +75,12 @@ public class SocialActivity extends AppCompatActivity {
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }else if(item.getItemId()==R.id.action_social){}
+            else if(item.getItemId()==R.id.action_add){
+                Intent intent = new Intent(SocialActivity.this, AddWorkoutActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
             return true;
         });
     }

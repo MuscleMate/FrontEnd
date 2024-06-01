@@ -68,6 +68,8 @@ public class ServerRequestHandler extends AsyncTask<String, Void, Pair<Integer, 
             MediaType mediaType = MediaType.parse("application/json");
             RequestBody body = RequestBody.create(mediaType, params[2]);
             requestBuilder = requestBuilder.post(body);
+        }else if("DELETE".equals(params[1])){
+            requestBuilder = requestBuilder.delete();
         }
 
         // Build the request

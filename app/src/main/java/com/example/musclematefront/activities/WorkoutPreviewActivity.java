@@ -61,6 +61,12 @@ public class WorkoutPreviewActivity extends AppCompatActivity {
         setupExerciseRecycler();
         setupEquipmentRecycler();
         setupCompanyRecycler();
+        binding.deleteView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteWorkoutRequest();
+            }
+        });
     }
 
     private void sendRequest() {
@@ -112,7 +118,7 @@ public class WorkoutPreviewActivity extends AppCompatActivity {
                 Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = String.format("http://192.168.1.9:4000/workouts/%s", workoutId);
+        String url = String.format("http://192.168.1.11:4000/workouts/%s", workoutId);
 
 
         requestHandler.executeWithThreadPool(url, "GET", "");
@@ -129,6 +135,42 @@ public class WorkoutPreviewActivity extends AppCompatActivity {
             binding.isFavImage.setImageResource(R.drawable.not_fav);
         }
 
+    }
+    private void deleteWorkoutRequest(){
+        ServerRequestHandler requestHandler = new ServerRequestHandler(context, new ServerRequestHandler.OnServerResponseListener() {
+            @Override
+            public void onResponse(Pair<Integer, JSONObject> responsePair) {
+                int statusCode = responsePair.first;
+                JSONObject response = responsePair.second;
+                try {
+                    String status = response.optString("status");
+                    Log.d("asd", "onResponse: " + response.toString());
+                    if (status.equals("OK") || statusCode == 200 || statusCode == 201) {
+                        Toast.makeText(context, "Workout deleted", Toast.LENGTH_SHORT).show();
+                        finish();
+
+
+                    } else {
+                        // Handle other cases if needed
+                        // For example, show an error message
+                        Toast.makeText(context, "Response not OK", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    // Handle JSON parsing error
+                    Toast.makeText(context, "Error parsing response", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
+            }
+        });
+        String url = String.format("http://192.168.1.11:4000/workouts/%s", workoutId);
+
+
+        requestHandler.executeWithThreadPool(url, "DELETE", "");
     }
 
     private void setupAppBar() {

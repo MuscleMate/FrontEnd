@@ -115,6 +115,12 @@ public class WorkoutsActivity extends AppCompatActivity {
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
+            else if(item.getItemId()==R.id.action_add){
+                Intent intent = new Intent(WorkoutsActivity.this, AddWorkoutActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
             return true;
         });
     }
@@ -153,7 +159,7 @@ public class WorkoutsActivity extends AppCompatActivity {
                 Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = String.format("http://192.168.1.9:4000/workouts");
+        String url = String.format("http://192.168.1.11:4000/workouts");
 
 
         requestHandler.executeWithThreadPool(url,"GET","");

@@ -89,7 +89,7 @@ public class ChallengesCompletedFragment extends Fragment {
                 Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
             }
         });
-        String url = "http://192.168.1.4:4000/friends/rankings/challenges";
+        String url = "http://192.168.1.11:4000/friends/rankings/challenges";
 
 
         requestHandler.executeWithThreadPool(url,"GET","");
