@@ -13,22 +13,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musclematefront.R;
 
-import com.example.musclematefront.activities.AddWorkoutActivity;
 import com.example.musclematefront.models.SingleExercise;
 
 import java.util.List;
 
-public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHolder>{
+public class ExercisesAddAdapter extends RecyclerView.Adapter<ExercisesAddAdapter.ViewHolder>{
     private List<SingleExercise> exerciseList;
     private Context context;
-    public ExerciseAdapter(List<SingleExercise> exerciseList){
+    public ExercisesAddAdapter(List<SingleExercise> exerciseList){
         this.exerciseList = exerciseList;
     }
     public void setNotificationsList(List<SingleExercise> exerciseList) {
         this.exerciseList = exerciseList;
     }
     @Override
-    public ExerciseAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ExercisesAddAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.exercise_small_card, parent, false);
         return new ViewHolder(view);
@@ -37,16 +36,10 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHo
 
 
     @Override
-    public void onBindViewHolder(@NonNull ExerciseAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ExercisesAddAdapter.ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
         TextView exerciseText = cardView.findViewById(R.id.exerciseText);
         exerciseText.setText(exerciseList.get(position).getTitle());
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AddWorkoutActivity.addExercise(exerciseList.get(position));
-            }
-        });
 
     }
 

@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.musclematefront.R;
 import com.example.musclematefront.ServerRequestHandler;
 import com.example.musclematefront.adapters.ExerciseAdapter;
+import com.example.musclematefront.adapters.ExercisesAddAdapter;
 import com.example.musclematefront.adapters.NotificationsAdapter;
 import com.example.musclematefront.databinding.ActivityAddWorkoutBinding;
 import com.example.musclematefront.databinding.ActivityWorkoutPreviewBinding;
@@ -33,8 +34,11 @@ import java.util.List;
 public class AddWorkoutActivity extends AppCompatActivity {
     ActivityAddWorkoutBinding binding;
     RecyclerView exerciseRecyclerView;
+    RecyclerView exerciseAddRecyclerView;
     ExerciseAdapter exerciseAdapter;
+    static ExercisesAddAdapter exerciseAddAdapter;
     List<SingleExercise> singleExerciseList = new ArrayList<>();
+    static List<SingleExercise> addedExercises = new ArrayList<>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,7 @@ public class AddWorkoutActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         setupNumberPickers();
         sendSearchRequest();
+        setupAddExerciseRecyclerView();
         setupSearchRecyclerView();
         setupBottomNavigation();
         binding.exerciseSearchButton.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +64,20 @@ public class AddWorkoutActivity extends AppCompatActivity {
         exerciseRecyclerView.setAdapter(exerciseAdapter);
         // The list we passed to the mAdapter was changed so we have to notify it in order to update
         exerciseAdapter.notifyDataSetChanged();
+    }
+    private void setupAddExerciseRecyclerView() {
+        exerciseAddRecyclerView = (RecyclerView) binding.exerciseRecyclerView;
+        exerciseAddRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        exerciseAddAdapter = new ExercisesAddAdapter(singleExerciseList);
+        exerciseAddRecyclerView.setAdapter(exerciseAddAdapter);
+        // The list we passed to the mAdapter was changed so we have to notify it in order to update
+        exerciseAddAdapter.notifyDataSetChanged();
+    }
+    public static void addExercise(SingleExercise exercise){
+        addedExercises.add(exercise);
+        exerciseAddAdapter.setNotificationsList(addedExercises);
+        exerciseAddAdapter.notifyDataSetChanged();
     }
 
     public void sendSearchRequest(){
@@ -102,6 +121,7 @@ public class AddWorkoutActivity extends AppCompatActivity {
 
         requestHandler.executeWithThreadPool(url,"POST",jsonPayload.toString());
     }
+
 
     private void setupNumberPickers() {
         binding.numberPickerDay.setVisibility(View.GONE);
