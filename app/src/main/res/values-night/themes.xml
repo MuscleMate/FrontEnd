@@ -3,11 +3,19 @@
     <style name="Base.Theme.MuscleMateFront" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <item name="colorPrimary">@color/grafit</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SnowBg" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:background">@color/black</item>
     </style>
 
     <style name="MatchBackground">
         <item name="android:background">@color/black</item>
+    </style>
+
+    <style name="NavBarBg" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:background">@color/deep_blue</item>
     </style>
 
     <style name="LogoStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
@@ -120,12 +128,13 @@
     <style name="SecondaryTextStyleSnowBg" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:fontFamily">@font/lato</item>
         <item name="android:textColor">@color/blue</item>
+        <item name="android:color">@color/blue</item>
     </style>
 
     <style name="addFriendTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:background">@null</item>
         <item name="android:fontFamily">@font/lato</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/purple_inactive</item>
     </style>
 
     <style name="hideTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
@@ -141,7 +150,19 @@
 
     <style name="bellStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="tint">@color/pale_purple</item>
+        <item name="android:background">@color/deep_blue</item>
     </style>
 
+    <style name="calendarIcon" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:src">@drawable/calendar_dark</item>
+        <item name="android:backgroundTint">@color/deep_blue</item>
+    </style>
+
+    <style name="SanSerifButton" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/deep_blue</item>
+    </style>
 
 </resources>

@@ -9,31 +9,48 @@
     android:layout_marginTop="20dp"
     android:layout_marginEnd="20dp"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    app:cardCornerRadius="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/NavBarBg"
         android:id="@+id/nobleConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
+            style="@style/SecondaryTextStyleWhiteBg"
             android:id="@+id/dosageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:text="5g"
+            android:text="@string/fivegrams"
             android:textSize="20sp"
+            android:paddingEnd="30dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            style="@style/calendarIcon"
+            android:id="@+id/sendSupplementButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            style="@style/SanSerifButton"
             android:id="@+id/suplementName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="Creatine"
-            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:text="@string/creatine"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
