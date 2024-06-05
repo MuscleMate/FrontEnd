@@ -20,104 +20,130 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/SnowBg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
+                app:shapeAppearanceOverlay="@style/circleImageView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/arms" />
 
             <TextView
                 android:id="@+id/firstNameTextView"
+                style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                android:text="TextView"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/hubert"
+                android:textSize="25sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                style="@style/SecondaryTextStyleSnowBg"
                 android:id="@+id/supplements"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="Supplements"
+                android:textSize="25sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/supplements"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
+
             <androidx.recyclerview.widget.RecyclerView
+                style="@style/NavBarBg"
                 android:id="@+id/supplementsRecyclerView"
-                android:layout_width="0dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                app:cardCornerRadius="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/supplementsCardView" />
 
             <TextView
+                style="@style/SecondaryTextStyleSnowBg"
                 android:id="@+id/measurements"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
-                android:text="Measurements"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:textSize="25sp"
+                android:text="@string/measurements"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/supplementsRecyclerView" />
 
             <androidx.recyclerview.widget.RecyclerView
+                style="@style/NavBarBg"
                 android:id="@+id/measurementsRecyclerView"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/measurementsCardView" />
 
             <TextView
+                style="@style/SecondaryTextStyleSnowBg"
                 android:id="@+id/settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="Settings"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:textSize="25sp"
+                android:text="@string/settings"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/measurementsRecyclerView" />
 
             <Button
+                style="@style/SanSerifButton"
                 android:id="@+id/applicationButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Application"
+                android:background="@drawable/profile_button_rounded"
+                android:gravity="center_vertical"
+                android:paddingStart="15dp"
+                android:paddingEnd="10dp"
+                android:drawableEnd="@drawable/chevron_right"
+                android:text="@string/application"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/settings" />
 
             <TextView
+                style="@style/SecondaryTextStyleSnowBg"
                 android:id="@+id/lastNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="TextView"
+                android:textSize="25sp"
+                android:text="@string/bubert"
                 app:layout_constraintStart_toStartOf="@+id/firstNameTextView"
                 app:layout_constraintTop_toBottomOf="@+id/firstNameTextView" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/supplementsCardView"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editSupplementsbutton">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/NavBarBg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -125,37 +151,51 @@
                         android:id="@+id/supplementName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
+                        android:layout_marginStart="10dp"
+                        android:ems="9"
                         android:inputType="text"
-                        android:text="Name"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/creatine"
+                        android:textSize="18sp"
+                        android:background="@android:color/transparent"                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
+                        style="@style/SecondaryTextStyleWhiteBg"
                         android:id="@+id/supplementDose"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="4"
+                        android:paddingEnd="1dp"
                         android:inputType="number"
+                        android:text="@string/number7"
+                        android:textSize="18sp"
+                        android:gravity="end"
+                        android:background="@android:color/transparent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/supplementName"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <Button
+                    <ImageButton
+                        style="@style/calendarIcon"
                         android:id="@+id/sendSupplementButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Button"
+                        android:background="@android:color/white"
+                        android:padding="8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        style="@style/SecondaryTextStyleWhiteBg"
                         android:id="@+id/textView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="g"
+                        android:ems="1"
+                        android:text="@string/g"
+                        android:textSize="18sp"
+                        android:background="@android:color/transparent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/sendSupplementButton"
                         app:layout_constraintStart_toEndOf="@+id/supplementDose"
@@ -166,30 +206,42 @@
 
             <Button
                 android:id="@+id/editSupplementsbutton"
+                style="@style/addFriendTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit"
+                android:text="@string/edit"
+                android:textSize="18sp"
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="7dp"
                 app:layout_constraintBottom_toBottomOf="@+id/supplements"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toTopOf="@+id/supplements" />
 
             <Button
+                style="@style/addFriendTextStyle"
                 android:id="@+id/editMeasurementsButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:text="@string/edit"
+                android:textSize="18sp"
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="7dp"
                 app:layout_constraintBottom_toBottomOf="@+id/measurements"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/measurements" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/measurementsCardView"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editMeasurementsButton"
                 tools:layout_editor_absoluteX="1dp" >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/NavBarBg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -197,42 +249,61 @@
                         android:id="@+id/measurementName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
+                        android:layout_marginStart="10dp"
+                        android:ems="9"
                         android:inputType="text"
-                        android:text="Name"
+                        android:text="@string/waist"
+                        android:textSize="18sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:background="@android:color/transparent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
                         android:id="@+id/measurementSize"
+                        style="@style/SecondaryTextStyleWhiteBg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="3"
+                        android:gravity="end"
                         android:inputType="number"
+                        android:text="@string/number7"
+                        android:textSize="18sp"
+                        android:background="@android:color/transparent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/measurementName"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.333" />
+                        app:layout_constraintVertical_bias="0.526" />
 
                     <TextView
+                        style="@style/SecondaryTextStyleWhiteBg"
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="cm"
+                        android:layout_marginStart="5dp"
+                        android:textSize="18sp"
+                        android:text="@string/cm"
+                        android:background="@android:color/transparent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/sendMeasurementsButton"
                         app:layout_constraintStart_toEndOf="@+id/measurementSize"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
+                        style="@style/addFriendTextStyle"
                         android:id="@+id/sendMeasurementsButton"
-                        android:layout_width="wrap_content"
+                        android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:text="Button"
+                        android:text="@string/add"
+                        android:gravity="center_vertical|end"
+                        android:paddingEnd="10dp"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>

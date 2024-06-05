@@ -49,4 +49,18 @@
     <string name="time">23:17</string>
     <string name="message">Your workout starts in 15 minutes!</string>
     <string name="number7">7</string>
+    <!--Profile activity-->
+    <string name="hubert">Hubert</string>
+    <string name="bubert">Bubert</string>
+    <string name="edit">Edit</string>
+    <string name="done">Done</string>
+    <string name="creatine">Creatine</string>
+    <string name="g">g</string>
+    <string name="settings">Settings</string>
+    <string name="supplements">Supplements</string>
+    <string name="measurements">Measurements</string>
+    <string name="cm">cm</string>
+    <string name="waist">Waist</string>
+    <string name="application">Application</string>
+    <string name="fivegrams">5 g</string>
 </resources>
