@@ -63,4 +63,22 @@
     <string name="waist">Waist</string>
     <string name="application">Application</string>
     <string name="fivegrams">5 g</string>
+    <!--Challenge activity-->
+    <string name="hoursLeft">15 hours left</string>
+    <string name="xp">100 xp</string>
+    <string name="challengeTitle">Challenge title</string>
+    <string name="participants">7 participants</string>
+    <string name="byKamil">by Kamil</string>
+    <string name="challenge">Lift 25kg during your lower body workout!</string>
+    <string name="daysLeft">6 days left</string>
+    <string name="goal">Goal</string>
+    <string name="target">Target</string>
+    <string name="XP">XP</string>
+    <string name="duration">Duration</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="status">Status</string>
+    <string name="goalTitle">Lifted weight</string>
+    <string name="kg">25 kg</string>
+    <string name="hundred">100</string>
+    <string name="replace">Replace</string>
 </resources>
