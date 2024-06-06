@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/SnowBg"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -33,150 +34,183 @@
                 app:srcCompat="@drawable/abs" />
 
             <TextView
+                style="@style/regularText"
                 android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="TextView"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="20dp"
+                android:textSize="25sp"
+                android:text="@string/challenge"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
             <TextView
+                style="@style/LevelInfoStyle"
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="TextView"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="@string/daysLeft"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
             <TextView
+                style="@style/hideTextStyle"
                 android:id="@+id/GoalTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Goal"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:text="@string/goal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
             <TextView
+                style="@style/hideTextStyle"
                 android:id="@+id/targetTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Target"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:text="@string/target"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/GoalTextView" />
 
             <TextView
+                style="@style/hideTextStyle"
                 android:id="@+id/xPTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="XP"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:text="@string/XP"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/targetTextView" />
 
             <TextView
+                style="@style/hideTextStyle"
                 android:id="@+id/durationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Duration"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:text="@string/duration"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/xPTextView" />
 
             <TextView
+                style="@style/hideTextStyle"
                 android:id="@+id/difficultyTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Difficulty"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:text="@string/difficulty"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/durationTextView" />
 
             <TextView
+                style="@style/hideTextStyle"
                 android:id="@+id/statusTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Status"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:text="@string/status"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/difficultyTextView" />
 
             <TextView
+                style="@style/simpleTextStyle"
                 android:id="@+id/goalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
-                android:text="TextView"
+                android:text="@string/goalTitle"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/GoalTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/GoalTextView" />
 
             <TextView
+                style="@style/simpleTextStyle"
                 android:id="@+id/targetText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
-                android:text="TextView"
+                android:text="@string/kg"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/targetTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/targetTextView" />
 
             <TextView
+                style="@style/simpleTextStyle"
                 android:id="@+id/xPText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
-                android:text="TextView"
+                android:textSize="20sp"
+                android:text="@string/hundred"
                 app:layout_constraintBottom_toBottomOf="@+id/xPTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/xPTextView" />
 
             <TextView
+                style="@style/simpleTextStyle"
                 android:id="@+id/durationText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:text="TextView"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/durationTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/durationTextView" />
 
             <TextView
+                style="@style/simpleTextStyle"
                 android:id="@+id/difficultyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:text="TextView"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/difficultyTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/difficultyTextView" />
 
             <Button
+                style="@style/PrimaryButtonStyle"
                 android:id="@+id/button5"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:layout_marginBottom="30dp"
+                android:text="@string/replace"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
+                style="@style/simpleBlueText"
                 android:id="@+id/statusText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:text="TextView"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/statusTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/statusTextView" />
