@@ -121,6 +121,7 @@
     </style>
 
     <style name="NavBarIcons" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:background">@color/white</item>
         <item name="android:layout_height">70dp</item>
         <item name="itemIconSize">40dp</item>
         <item name="itemIconTint">@drawable/icons_light</item>

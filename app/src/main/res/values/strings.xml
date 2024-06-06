@@ -81,4 +81,16 @@
     <string name="kg">25 kg</string>
     <string name="hundred">100</string>
     <string name="replace">Replace</string>
+    <!--Workout preview-->
+    <string name="stretching">Stretching</string>
+    <string name="minutes">25 min</string>
+    <string name="exer">2 exercises</string>
+    <string name="noEquip">No equipment needed</string>
+    <string name="mates">Mates</string>
+    <string name="saveAsTemplate">Save as template</string>
+    <string name="exerSet">Exercise set</string>
+    <string name="equip">Equipment</string>
+    <string name="nobodyAssigned">Nobody is assigned</string>
+    <string name="delete">Delete</string>
+    <string name="start">Start</string>
 </resources>
