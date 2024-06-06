@@ -27,16 +27,17 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            style="@style/SnowBg">
 
             <TextView
                 android:id="@+id/workoutTitle"
-                style="@style/ExerciseHeader"
+                style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:text="TextView"
+                android:text="@string/stretching"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -62,29 +63,36 @@
                 app:srcCompat="@drawable/clock" />
 
             <TextView
+                style="@style/simpleTextStyle"
                 android:id="@+id/timeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="TextView"
+                android:text="@string/time"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="@+id/clockIcon"
                 app:layout_constraintStart_toEndOf="@+id/clockIcon" />
 
             <TextView
+                style="@style/LevelInfoStyle"
                 android:id="@+id/durationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="TextView"
+                android:layout_marginStart="15dp"
+                android:text="@string/minutes"
+                android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/timeTextView"
                 app:layout_constraintTop_toTopOf="@+id/timeTextView" />
 
             <TextView
+                style="@style/LevelInfoStyle"
                 android:id="@+id/amountTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="TextView"
+                android:layout_marginStart="15dp"
+                android:text="@string/exer"
+                android:layout_marginTop="0dp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/durationTextView"
                 app:layout_constraintTop_toTopOf="@+id/durationTextView" />
 
@@ -94,26 +102,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
+                android:foregroundGravity="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/clockIcon"
                 app:srcCompat="@drawable/fire" />
 
             <TextView
                 android:id="@+id/textView8"
-                style="@style/ExerciseHeader"
+                style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Exercise set"
+                android:layout_marginStart="5dp"
+                android:text="@string/exerSet"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView4"
                 app:layout_constraintStart_toEndOf="@+id/imageView4" />
 
             <TextView
+                style="@style/addFriendTextStyle"
                 android:id="@+id/saveTemplate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
-                android:text="Save as template"
+                android:text="@string/saveAsTemplate"
                 app:layout_constraintBottom_toBottomOf="@+id/textView8"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -138,21 +149,23 @@
 
             <TextView
                 android:id="@+id/textView10"
-                style="@style/ExerciseHeader"
+                style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Equipment"
+                android:layout_marginStart="5dp"
+                android:textSize="20sp"
+                android:text="@string/equip"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView5"
                 app:layout_constraintStart_toEndOf="@+id/imageView5" />
 
             <TextView
+                style="@style/simpleTextStyle"
                 android:id="@+id/equipment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="34dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
-                android:text="No equipment needed"
+                android:text="@string/noEquip"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -177,25 +190,28 @@
 
             <TextView
                 android:id="@+id/textView12"
-                style="@style/ExerciseHeader"
+                style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Company"
+                android:layout_marginStart="5dp"
+                android:text="@string/mates"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                 app:layout_constraintStart_toEndOf="@+id/imageView6" />
 
             <TextView
+                style="@style/simpleTextStyle"
                 android:id="@+id/assignees"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="34dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
-                android:text="Nobody is assigned."
+                android:text="@string/nobodyAssigned"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <TextView
+                style="@style/addFriendTextStyle"
                 android:id="@+id/invite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -214,6 +230,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <TextView
+                style="@style/simpleTextStyle"
                 android:id="@+id/deleteView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -221,32 +238,33 @@
                 android:layout_marginEnd="50dp"
                 android:layout_marginBottom="20dp"
                 android:drawableTop="@drawable/trashcan"
-                android:text="Delete"
+                android:text="@string/delete"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/editView"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
+                style="@style/simpleTextStyle"
                 android:id="@+id/editView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:drawableTop="@drawable/edit"
-                android:text="Edit"
+                android:text="@string/edit"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
+                style="@style/simpleTextStyle"
                 android:id="@+id/startView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
-
                 android:layout_marginBottom="20dp"
                 android:drawableTop="@drawable/start"
-                android:text="Start"
+                android:text="@string/start"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editView" />
