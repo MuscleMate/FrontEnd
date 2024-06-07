@@ -167,7 +167,7 @@
 
 
             <TextView
-                android:id="@+id/startView"
+                android:id="@+id/saveWorkout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
@@ -190,7 +190,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/exerciseSearchRecyclerView" />
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/workoutTitleEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"

@@ -25,10 +25,12 @@ import com.example.musclematefront.databinding.ActivityWorkoutPreviewBinding;
 import com.example.musclematefront.models.Notification;
 import com.example.musclematefront.models.SingleExercise;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AddWorkoutActivity extends AppCompatActivity {
@@ -55,6 +57,12 @@ public class AddWorkoutActivity extends AppCompatActivity {
                 sendSearchRequest();
             }
         });
+        binding.saveWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendCreateWorkoutRequest();
+            }
+        });
     }
     private void setupSearchRecyclerView() {
         exerciseRecyclerView = (RecyclerView) binding.exerciseSearchRecyclerView;
@@ -79,7 +87,53 @@ public class AddWorkoutActivity extends AppCompatActivity {
         exerciseAddAdapter.setNotificationsList(addedExercises);
         exerciseAddAdapter.notifyDataSetChanged();
     }
+    private void sendCreateWorkoutRequest(){
+            ServerRequestHandler requestHandler = new ServerRequestHandler(AddWorkoutActivity.this,new ServerRequestHandler.OnServerResponseListener() {
+                @Override
+                public void onResponse(Pair<Integer, JSONObject> responsePair) {
+                    int statusCode = responsePair.first;
+                    JSONObject response = responsePair.second;
+                    try{
+                        String status = response.optString("status");
+                        Log.d("asd", "onResponse: "+response.toString());
+                        if (status.equals("OK")||statusCode==200||statusCode==201) {
+                        } else {
+                            // Handle other cases if needed
+                            // For example, show an error message
+                            Toast.makeText(AddWorkoutActivity.this, "Response not OK", Toast.LENGTH_SHORT).show();
+                        }
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                        // Handle JSON parsing error
+                        Toast.makeText(AddWorkoutActivity.this, "Error parsing response", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
+                @Override
+                public void onError(String error) {
+                    Toast.makeText(AddWorkoutActivity.this, error, Toast.LENGTH_SHORT).show();
+                }
+            });
+            JSONObject jsonPayload = new JSONObject();
+            try {
+                jsonPayload.put("title", binding.workoutTitleEditText.getText().toString());
+                jsonPayload.put("startDate", new Date(binding.numberPickerYear.getValue(), binding.numberPickerMonth2.getValue(), binding.numberPickerDay.getValue(), binding.numberPickerTime1.getValue(), binding.numberPickerTime2.getValue()));
+                JSONArray exercisesArray = new JSONArray();
+                for (SingleExercise exercise : addedExercises) {
+                    JSONObject exerciseObj = new JSONObject();
+                    exerciseObj.put("_id", exercise.get_id());
+                    exercisesArray.put(exerciseObj);
+                }
+                jsonPayload.put("exercises", exercisesArray);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            String url = "http://192.168.1.11:4000/workouts";
+
+
+            requestHandler.executeWithThreadPool(url,"POST",jsonPayload.toString());
+
+    }
     public void sendSearchRequest(){
         ServerRequestHandler requestHandler = new ServerRequestHandler(AddWorkoutActivity.this,new ServerRequestHandler.OnServerResponseListener() {
             @Override
