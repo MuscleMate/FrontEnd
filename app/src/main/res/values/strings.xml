@@ -98,4 +98,7 @@
     <string name="exampleMuscleGroup">Legs</string>
     <string name="sets">2 sets</string>
     <string name="set">40kg, 12reps</string>
+    <!--Home-->
+    <string name="level">Level 3</string>
+    <string name="xpLeft">40xp to level 4!</string>
 </resources>
