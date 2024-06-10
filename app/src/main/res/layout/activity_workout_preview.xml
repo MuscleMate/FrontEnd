@@ -98,21 +98,21 @@
 
             <ImageView
                 android:id="@+id/imageView4"
+                style="@style/fireIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:foregroundGravity="center"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/clockIcon"
-                app:srcCompat="@drawable/fire" />
+                app:layout_constraintTop_toBottomOf="@+id/clockIcon" />
 
             <TextView
                 android:id="@+id/textView8"
                 style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="10dp"
                 android:text="@string/exerSet"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView4"
@@ -125,12 +125,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:text="@string/saveAsTemplate"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView8"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/exerciseRecyclerView"
-                android:layout_width="346dp"
+                android:layout_width="350dp"
                 android:layout_height="84dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -139,20 +140,20 @@
 
             <ImageView
                 android:id="@+id/imageView5"
+                style="@style/dumbbellIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="45dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseRecyclerView"
-                app:srcCompat="@drawable/dumbbell" />
+                app:layout_constraintTop_toBottomOf="@+id/exerciseRecyclerView" />
 
             <TextView
                 android:id="@+id/textView10"
                 style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="10dp"
                 android:textSize="20sp"
                 android:text="@string/equip"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView5"
@@ -171,7 +172,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/equipmentRecyclerView"
-                android:layout_width="343dp"
+                android:layout_width="350dp"
                 android:layout_height="74dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -180,20 +181,20 @@
 
             <ImageView
                 android:id="@+id/imageView6"
+                style="@style/personIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="45dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/equipmentRecyclerView"
-                app:srcCompat="@drawable/person" />
+                app:layout_constraintTop_toBottomOf="@+id/equipmentRecyclerView" />
 
             <TextView
                 android:id="@+id/textView12"
                 style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="10dp"
                 android:text="@string/mates"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView6"
@@ -216,13 +217,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="34dp"
-                android:text="Invite friends"
+                android:text="@string/invite"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView12"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/companyRecyclerView"
-                android:layout_width="343dp"
+                android:layout_width="350dp"
                 android:layout_height="73dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -244,26 +246,24 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                style="@style/simpleTextStyle"
+                style="@style/editIcon"
                 android:id="@+id/editView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:drawableTop="@drawable/edit"
                 android:text="@string/edit"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                style="@style/simpleTextStyle"
+                style="@style/startIcon"
                 android:id="@+id/startView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
                 android:layout_marginBottom="20dp"
-                android:drawableTop="@drawable/start"
                 android:text="@string/start"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

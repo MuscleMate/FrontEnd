@@ -101,4 +101,8 @@
     <!--Home-->
     <string name="level">Level 3</string>
     <string name="xpLeft">40xp to level 4!</string>
+    <!--Add workout-->
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="invite">Invite friends</string>
 </resources>

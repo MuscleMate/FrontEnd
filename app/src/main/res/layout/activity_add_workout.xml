@@ -27,126 +27,138 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            style="@style/SnowBg">
 
             <ImageView
                 android:id="@+id/imageView4"
+                style="@style/fireIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/numberPickerTime1"
-                app:srcCompat="@drawable/fire" />
+                app:layout_constraintTop_toBottomOf="@+id/numberPickerTime1" />
 
             <TextView
                 android:id="@+id/textView8"
-                style="@style/ExerciseHeader"
+                style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Exercise set"
+                android:text="@string/exerSet"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView4"
                 app:layout_constraintStart_toEndOf="@+id/imageView4" />
 
             <TextView
                 android:id="@+id/saveTemplate"
+                style="@style/addFriendTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
+                android:textSize="16sp"
                 android:text="Save as template"
                 app:layout_constraintBottom_toBottomOf="@+id/textView8"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/exerciseRecyclerView"
-                android:layout_width="346dp"
+                android:layout_width="350dp"
                 android:layout_height="84dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button6" />
 
             <ImageView
                 android:id="@+id/imageView5"
+                style="@style/dumbbellIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="45dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseRecyclerView"
-                app:srcCompat="@drawable/dumbbell" />
+                app:layout_constraintTop_toBottomOf="@+id/exerciseRecyclerView" />
 
             <TextView
                 android:id="@+id/textView10"
-                style="@style/ExerciseHeader"
+                style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Equipment"
+                android:text="@string/equip"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView5"
                 app:layout_constraintStart_toEndOf="@+id/imageView5" />
 
             <TextView
                 android:id="@+id/equipment"
+                style="@style/simpleTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="34dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
-                android:text="No equipment needed"
+                android:text="@string/noEquip"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/equipmentRecyclerView"
-                android:layout_width="343dp"
+                android:layout_width="350dp"
                 android:layout_height="74dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.508"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <ImageView
                 android:id="@+id/imageView6"
+                style="@style/personIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="45dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/equipmentRecyclerView"
-                app:srcCompat="@drawable/person" />
+                app:layout_constraintTop_toBottomOf="@+id/equipmentRecyclerView" />
 
             <TextView
                 android:id="@+id/textView12"
-                style="@style/ExerciseHeader"
+                style="@style/SecondaryTextStyleSnowBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Company"
+                android:text="@string/mates"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                 app:layout_constraintStart_toEndOf="@+id/imageView6" />
 
             <TextView
                 android:id="@+id/assignees"
+                style="@style/simpleTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="34dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
-                android:text="Nobody is assigned."
+                android:text="@string/nobodyAssigned"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <TextView
                 android:id="@+id/invite"
+                style="@style/addFriendTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="34dp"
-                android:text="Invite friends"
+                android:text="@string/invite"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView12"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/companyRecyclerView"
-                android:layout_width="343dp"
+                android:layout_width="350dp"
                 android:layout_height="73dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -155,46 +167,55 @@
 
             <TextView
                 android:id="@+id/deleteView"
+                style="@style/simpleTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:drawableTop="@drawable/trashcan"
-                android:text="Cancel"
+                android:layout_marginTop="90dp"
+                android:drawableTop="@drawable/red_cross"
+                android:text="@string/cancel"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.33"
+                app:layout_constraintEnd_toStartOf="@+id/saveWorkout"
+                app:layout_constraintTop_toBottomOf="@+id/textView12"
                 app:layout_constraintStart_toStartOf="parent" />
 
 
             <TextView
                 android:id="@+id/saveWorkout"
+                style="@style/dumbbellIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
-
                 android:layout_marginBottom="20dp"
-                android:drawableTop="@drawable/start"
-                android:text="Save"
+                android:drawableTop="@drawable/folder"
+                android:text="@string/save"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.66"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Button
+                style="@style/buttonsAsText"
                 android:id="@+id/button6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="38dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/profile_button_rounded"
                 android:text="Add excersises"
+                android:textSize="16sp"
+                android:drawableEnd="@drawable/chevron_right"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/exerciseSearchRecyclerView" />
 
             <EditText
+                style="@style/TellMoreInputStyle"
                 android:id="@+id/workoutTitleEditText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="12dp"
+                android:layout_marginEnd="15dp"
                 android:ems="10"
                 android:hint="Workout name"
                 android:inputType="text"
@@ -239,30 +260,42 @@
                 app:np_value="1" />
 
             <Button
+                style="@style/buttonsAsText"
                 android:id="@+id/dateButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
                 android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginTop="15dp"
                 android:text="Date"
+                android:background="@drawable/profile_button_rounded"
+                android:drawableEnd="@drawable/chevron_right"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/workoutTitleEditText" />
 
             <Button
+                style="@style/buttonsAsText"
                 android:id="@+id/timeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginTop="20dp"
                 android:text="Time"
+                android:background="@drawable/profile_button_rounded"
+                android:drawableEnd="@drawable/chevron_right"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/numberPickerDay" />
 
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/numberPickerTime1"
                 style="@style/NumberPickerStyle"
-                android:layout_width="100dp"
+                android:layout_width="90dp"
                 android:layout_height="120dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/timeButton"
                 app:np_max="24"
@@ -272,8 +305,10 @@
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/numberPickerTime2"
                 style="@style/NumberPickerStyle"
-                android:layout_width="100dp"
+                android:layout_width="90dp"
                 android:layout_height="120dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toEndOf="@+id/numberPickerTime1"
                 app:layout_constraintTop_toBottomOf="@+id/timeButton"
                 app:np_max="24"
@@ -283,8 +318,10 @@
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/numberPickerTime3"
                 style="@style/NumberPickerStyle"
-                android:layout_width="100dp"
+                android:layout_width="90dp"
                 android:layout_height="120dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toEndOf="@+id/numberPickerTime2"
                 app:layout_constraintTop_toBottomOf="@+id/timeButton"
                 app:np_max="24"
@@ -294,8 +331,11 @@
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/numberPickerTime4"
                 style="@style/NumberPickerStyle"
-                android:layout_width="100dp"
+                android:layout_width="90dp"
                 android:layout_height="120dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/numberPickerTime3"
                 app:layout_constraintTop_toBottomOf="@+id/timeButton"
@@ -305,28 +345,34 @@
 
             <EditText
                 android:id="@+id/exerciseSearchText"
+                style="@style/TellMoreInputStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="20dp"
-                android:ems="10"
+                android:layout_marginStart="15dp"
+                android:ems="15"
                 android:inputType="text"
-                android:text="Name"
+                android:hint="Name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <Button
                 android:id="@+id/exerciseSearchButton"
+                style="@style/PrimaryButtonStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
                 android:text="Search"
                 app:layout_constraintStart_toEndOf="@+id/exerciseSearchText"
                 app:layout_constraintTop_toTopOf="@+id/exerciseSearchText" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/exerciseSearchRecyclerView"
-                android:layout_width="wrap_content"
+                android:layout_width="350dp"
                 android:layout_height="228dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.508"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/exerciseSearchButton" />
         </androidx.constraintlayout.widget.ConstraintLayout>
