@@ -105,4 +105,8 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="invite">Invite friends</string>
+    <string name="workoutName">Workout name</string>
+    <string name="date">Date</string>
+    <string name="timeWord">Time</string>
+    <string name="search">Search</string>
 </resources>
