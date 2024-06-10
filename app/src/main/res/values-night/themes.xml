@@ -227,7 +227,15 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="cupIcon" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="srcCompat">@drawable/cup_dark</item>
+    <style name="medalIcon" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">@drawable/medal_dark</item>
+    </style>
+
+    <style name="starIcon" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">@drawable/star_dark</item>
+    </style>
+
+    <style name="xpStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:textColor">@color/blue_gray</item>
     </style>
 </resources>

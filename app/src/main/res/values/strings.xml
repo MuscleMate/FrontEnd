@@ -112,4 +112,6 @@
     <string name="dumbbells">40kg dumbbells</string>
     <!--Completed challenges-->
     <string name="totalCompletedChallenges">Total completed challenges</string>
+    <!--Experience-->
+    <string name="totalExPoints">Total experience points</string>
 </resources>
