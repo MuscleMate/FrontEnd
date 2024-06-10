@@ -210,4 +210,12 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="customProgressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/custom_progressbar</item>
+    </style>
+
+    <style name="crownIconStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">@drawable/crown</item>
+    </style>
+
 </resources>
