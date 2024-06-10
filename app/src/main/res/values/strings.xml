@@ -110,4 +110,6 @@
     <string name="timeWord">Time</string>
     <string name="search">Search</string>
     <string name="dumbbells">40kg dumbbells</string>
+    <!--Completed challenges-->
+    <string name="totalCompletedChallenges">Total completed challenges</string>
 </resources>
