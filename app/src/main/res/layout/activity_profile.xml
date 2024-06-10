@@ -67,7 +67,6 @@
                 android:paddingStart="10dp"
                 app:cardCornerRadius="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/supplementsCardView" />
 
@@ -106,20 +105,21 @@
                 app:layout_constraintTop_toBottomOf="@+id/measurementsRecyclerView" />
 
             <Button
-                style="@style/SanSerifButton"
                 android:id="@+id/applicationButton"
+                style="@style/SanSerifButton"
                 android:layout_width="350dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/profile_button_rounded"
+                android:drawableEnd="@drawable/chevron_right"
                 android:gravity="center_vertical"
                 android:paddingStart="15dp"
                 android:paddingEnd="10dp"
-                android:drawableEnd="@drawable/chevron_right"
                 android:text="@string/application"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.411"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/settings" />
 
