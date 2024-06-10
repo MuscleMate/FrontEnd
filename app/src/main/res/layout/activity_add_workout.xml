@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:textSize="16sp"
-                android:text="Save as template"
+                android:text="@string/saveAsTemplate"
                 app:layout_constraintBottom_toBottomOf="@+id/textView8"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -217,7 +217,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="15dp"
                 android:ems="10"
-                android:hint="Workout name"
+                android:hint="@string/workoutName"
                 android:inputType="text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -267,7 +267,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginTop="15dp"
-                android:text="Date"
+                android:text="@string/date"
                 android:background="@drawable/profile_button_rounded"
                 android:drawableEnd="@drawable/chevron_right"
                 android:textSize="16sp"
@@ -282,7 +282,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginTop="20dp"
-                android:text="Time"
+                android:text="@string/timeWord"
                 android:background="@drawable/profile_button_rounded"
                 android:drawableEnd="@drawable/chevron_right"
                 android:textSize="16sp"
@@ -352,7 +352,7 @@
                 android:layout_marginStart="15dp"
                 android:ems="15"
                 android:inputType="text"
-                android:hint="Name"
+                android:hint="@string/name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -362,7 +362,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginStart="10dp"
-                android:text="Search"
+                android:text="@string/search"
                 app:layout_constraintStart_toEndOf="@+id/exerciseSearchText"
                 app:layout_constraintTop_toTopOf="@+id/exerciseSearchText" />
 
