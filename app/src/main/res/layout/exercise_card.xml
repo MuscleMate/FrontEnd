@@ -16,12 +16,10 @@
         android:id="@+id/nobleConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-
-        >
-
+        style="@style/NavBarBg" >
 
         <ImageView
+            style="@style/SnowBg"
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,46 +30,54 @@
             app:srcCompat="@drawable/line" />
 
         <TextView
+            style="@style/simpleTextStyle"
             android:id="@+id/exerciseTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="35dp"
-            android:text="TextView"
-
+            android:text="@string/exampleExer"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            style="@style/LevelInfoStyle"
             android:id="@+id/exerciseMusclePart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginBottom="35dp"
-            android:text="TextView"
+            android:layout_marginTop="0dp"
+            android:text="@string/exampleMuscleGroup"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/exerciseTitle"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            style="@style/simpleTextStyle"
             android:id="@+id/exerciseSetAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="35dp"
-            android:text="TextView"
+            android:text="@string/sets"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            style="@style/SecondaryTextStyleSnowBg"
             android:id="@+id/exerciseTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="10dp"
-            android:text="TextView"
+            android:text="@string/set"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
