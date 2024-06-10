@@ -109,4 +109,6 @@
     <string name="date">Date</string>
     <string name="timeWord">Time</string>
     <string name="search">Search</string>
+    <!--Challenges-->
+    <string name="totalCompletedChallenges">Total completed challenges</string>
 </resources>

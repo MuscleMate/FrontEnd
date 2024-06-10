@@ -226,4 +226,8 @@
         <item name="android:fontFamily">@font/lato</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
+    <style name="cupIcon" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">@drawable/cup_dark</item>
+    </style>
 </resources>
