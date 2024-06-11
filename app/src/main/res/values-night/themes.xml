@@ -90,19 +90,6 @@
         <item name="srcCompat">"@drawable/arms_dark"</item>
     </style>
 
-    <style name="PrimaryTextStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:fontFamily">@font/lato</item>
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <style name="ForgotPasswordTextStyle">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:fontFamily">@font/lato</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:background">@color/black</item>
-    </style>
-
     <style name="BorderOnlyButton" parent="@android:style/Widget.Button">
         <item name="android:layout_width">250dp</item>
         <item name="android:layout_height">40dp</item>
@@ -238,4 +225,17 @@
     <style name="xpStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:textColor">@color/blue_gray</item>
     </style>
+
+    <style name="cookieIcon" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">@drawable/cookie_dark</item>
+    </style>
+
+    <style name="tapeIcon" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">@drawable/tape_dark</item>
+    </style>
+
+    <style name="settingsIcon" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="srcCompat">@drawable/settings_dark</item>
+    </style>
+
 </resources>

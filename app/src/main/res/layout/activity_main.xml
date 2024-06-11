@@ -114,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword2" />
 
     <TextView
-        style="@style/ForgotPasswordTextStyle"
+        style="@style/simpleTextStyle"
         android:id="@+id/forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
