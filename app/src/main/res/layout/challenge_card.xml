@@ -78,12 +78,13 @@
             app:layout_constraintTop_toTopOf="@+id/participantsTextView" />
 
         <TextView
-            style="@style/ForgotPasswordTextStyle"
+            style="@style/simpleTextStyle"
             android:id="@+id/workoutTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="17dp"
+            android:textSize="16sp"
             android:text="@string/challengeTitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
