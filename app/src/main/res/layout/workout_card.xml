@@ -6,31 +6,28 @@
     android:id="@+id/cardLayout"
     android:layout_width="296dp"
     android:layout_height="119dp"
-
-
+    app:cardCornerRadius="4dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/nobleConstraintLayout"
+        style="@style/NavBarBg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/timeTextView"
+            style="@style/SecondaryTextStyleWhiteBg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/lato"
-
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/lato_bold"
             android:lineHeight="24sp"
-            android:text="TextView"
-            android:textColor="@color/navy_blue"
+            android:text="@string/time"
             android:textSize="20sp"
-            android:background="@color/white"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,79 +35,63 @@
 
         <TextView
             android:id="@+id/dateTextView"
+            style="@style/xpStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/lato"
-
-            android:lineHeight="17sp"
-            android:text="TextView"
-            android:textColor="@color/gray"
+            android:fontFamily="@font/lato_bold"
+            android:text="@string/randomDate"
             android:textSize="14sp"
-            android:background="@color/white"
-
             app:layout_constraintBottom_toTopOf="@+id/timeTextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/nameTextView"
+            style="@style/simpleTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:fontFamily="@font/lato"
-
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:lineHeight="24sp"
-            android:text="TextView"
-            android:textColor="@color/black"
+            android:text="@string/stretching"
             android:textSize="20sp"
-            android:background="@color/white"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/timeTextView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/durationTextView"
+            style="@style/xpStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/lato"
-
-            android:lineHeight="19sp"
-            android:text="TextView"
-            android:textColor="@color/gray"
+            android:layout_marginBottom="10dp"
+            android:text="@string/minutes"
             android:textSize="16sp"
-            android:background="@color/white"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
 
         <TextView
             android:id="@+id/amountTextView"
+            style="@style/xpStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/lato"
-
-            android:lineHeight="19sp"
-            android:text="TextView"
-            android:textColor="@color/gray"
+            android:layout_marginBottom="10dp"
+            android:text="@string/exer"
             android:textSize="16sp"
-            android:background="@color/white"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/durationTextView"
             app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
         <ImageView
             android:id="@+id/favImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/not_fav" />

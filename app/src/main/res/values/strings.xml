@@ -114,4 +114,6 @@
     <string name="totalCompletedChallenges">Total completed challenges</string>
     <!--Experience-->
     <string name="totalExPoints">Total experience points</string>
+    <!--Workout card-->
+    <string name="randomDate">7 March, 2024</string>
 </resources>
