@@ -80,17 +80,6 @@
 
                     </androidx.recyclerview.widget.RecyclerView>
 
-                    <Button
-                        style="@style/hideTextStyle"
-                        android:id="@+id/button3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:text="@string/hide"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/friendsRequestRecyclerView" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
@@ -138,27 +127,16 @@
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/friendsRecyclerView"
-                                android:layout_width="409dp"
+                                android:layout_width="0dp"
                                 android:layout_height="340dp"
                                 android:layout_marginStart="20dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginEnd="20dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.core.widget.NestedScrollView>
 
-                    <Button
-                        android:id="@+id/button4"
-                        style="@style/addFriendTextStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="20dp"
-                        android:gravity="bottom|center_horizontal"
-                        android:text="@string/addFriend"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -169,20 +147,20 @@
                 style="@style/BorderOnlyButton"
                 android:layout_width="80dp"
                 android:layout_height="22dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
                 android:text="@string/addFriend"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/searchFriendButton"
-                app:layout_constraintStart_toEndOf="@+id/searchFriendButton"
-                app:layout_constraintTop_toTopOf="@+id/searchFriendButton" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/searchTextView"
                 style="@style/TellMoreInputStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:inputType="text"
                 android:text="Name"

@@ -13,7 +13,7 @@ import com.example.musclematefront.activitiesSocial.TournamentsFragment;
 
 public class mPagerAdapter extends FragmentStateAdapter {
 
-    private static final int NUM_PAGES = 5; // Number of tabs
+    private static final int NUM_PAGES = 4; // Number of tabs
 
     public mPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
@@ -32,9 +32,6 @@ public class mPagerAdapter extends FragmentStateAdapter {
                 return new RankingsFragment();
             case 3:
                 return new ChallengesFragment();
-            case 4:
-                return new TournamentsFragment();
-            // Add cases for other fragments
             default:
                 return null;
         }

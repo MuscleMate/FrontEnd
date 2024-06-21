@@ -53,13 +53,7 @@ public class FriendsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentFriendsBinding.inflate(inflater, container, false);
         View rootView = binding.getRoot();
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity != null) {
-            Toolbar toolbar = activity.findViewById(R.id.toolbar);
-            if (toolbar != null) {
-                toolbar.setTitle("Friends");
-            }
-        }
+
         sendRequestFriends();
         sendRequestFriendsRequest();
         setupFriendRequestRecycler();

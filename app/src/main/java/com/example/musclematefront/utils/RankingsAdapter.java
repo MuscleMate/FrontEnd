@@ -25,8 +25,6 @@ public class RankingsAdapter extends FragmentStateAdapter {
                 return new ExperienceFragment();
             case 1:
                 return new ChallengesCompletedFragment();
-            case 2:
-                return new WonFragment();
             default:
                 return null;
         }
@@ -35,6 +33,6 @@ public class RankingsAdapter extends FragmentStateAdapter {
     @Override
     public int getItemCount() {
         // Return the number of fragments
-        return 3;
+        return 2;
     }
 }

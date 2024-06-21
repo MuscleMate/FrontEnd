@@ -43,13 +43,6 @@ public class ExperienceFragment extends Fragment  {
         binding = FragmentExperienceBinding.inflate(inflater, container, false);
         View rootView = binding.getRoot();
 
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity != null) {
-            Toolbar toolbar = activity.findViewById(R.id.toolbar);
-            if (toolbar != null) {
-                toolbar.setTitle("Challenges");
-            }
-        }
         setupexperienceRecycler();
         sendRequestExperience();
         return rootView;

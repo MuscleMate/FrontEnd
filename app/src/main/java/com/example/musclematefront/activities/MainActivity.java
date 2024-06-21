@@ -9,7 +9,9 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import com.example.musclematefront.R;
 import com.example.musclematefront.ServerRequestHandler;
 import com.example.musclematefront.databinding.ActivityMainBinding;
 import com.example.musclematefront.models.Tournament;
@@ -48,16 +50,18 @@ public class MainActivity extends AppCompatActivity {
     }
     private void setupButtons(){
         binding.logInChangeButton.setOnClickListener(view -> {
-            Toast.makeText(MainActivity.this, "LoginChange", Toast.LENGTH_SHORT).show();
             binding.editTextPassword.setVisibility(View.VISIBLE);
+            binding.logInChangeButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.button_underline));
+            binding.signUpChangeButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.white));
             binding.logInButton.setText("Log In");
             isLogIn=true;
         });
 
         binding.signUpChangeButton.setOnClickListener(view -> {
-            Toast.makeText(MainActivity.this, "SignupChange", Toast.LENGTH_SHORT).show();
             binding.editTextPassword.setVisibility(View.GONE);
             binding.editTextPassword2.setVisibility(View.GONE);
+            binding.logInChangeButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.white));
+            binding.signUpChangeButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.button_underline));
             binding.logInButton.setText("Sign Up");
             isLogIn=false;
         });

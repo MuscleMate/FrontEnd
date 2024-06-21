@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardLayout"
     android:layout_width="match_parent"
-    android:layout_height="56dp"
+    android:layout_height="65dp"
     android:layout_marginTop="20dp"
     android:layout_marginEnd="20dp"
     app:layout_constraintStart_toStartOf="parent"
@@ -17,25 +17,26 @@
         android:layout_height="match_parent">
 
         <TextView
-            style="@style/simpleTextStyle"
             android:id="@+id/dosageTextView"
+            style="@style/simpleTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:text="@string/message"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/suplementName"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/suplementName"
+            app:layout_constraintTop_toBottomOf="@+id/suplementName" />
 
         <TextView
-            style="@style/timeTextStyle"
             android:id="@+id/suplementName"
+            style="@style/timeTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/time"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,10 +46,10 @@
             android:layout_height="13dp"
             android:layout_marginEnd="20dp"
             android:background="@color/blue"
-            app:shapeAppearanceOverlay="@style/circleImageView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/circleImageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

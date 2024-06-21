@@ -35,6 +35,12 @@ public class ChallengeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String id = intent.getStringExtra("ID");
         sendRequestChallenge(String.valueOf(id));
+        binding.button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     private void sendRequestChallenge(String id){
         ServerRequestHandler requestHandler = new ServerRequestHandler(ChallengeActivity.this,new ServerRequestHandler.OnServerResponseListener() {

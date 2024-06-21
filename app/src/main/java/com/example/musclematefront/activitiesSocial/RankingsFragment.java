@@ -26,20 +26,25 @@ public class RankingsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentRankingsBinding.inflate(inflater, container, false);
         View rootView = binding.getRoot();
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity != null) {
-            Toolbar toolbar = activity.findViewById(R.id.toolbar);
-            if (toolbar != null) {
-                toolbar.setTitle("Friends");
-            }
-        }
+
+        
         RankingsAdapter adapter = new RankingsAdapter(RankingsFragment.this.getActivity());
         binding.viewPager.setAdapter(adapter);
 
         // Connect ViewPager with TabLayout
         new TabLayoutMediator(binding.tabLayout, binding.viewPager,
-                (tab, position) -> tab.setText("Tab " + (position + 1))
-        ).attach();
+                (tab,position) ->{
+                    // Set the title for each tab
+                    switch (position) {
+                        case 0:
+                            tab.setText("Experience");
+                            break;
+                        case 1:
+                            tab.setText("Challenges");
+                            break;
+                    }
+                }).attach();
+
         return rootView;
     }
 }

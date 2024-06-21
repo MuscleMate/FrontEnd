@@ -43,13 +43,6 @@ public class ActivityFragment extends Fragment {
         binding = FragmentActivityBinding.inflate(inflater, container, false);  // Properly initialize the class-level binding
         View rootView = binding.getRoot();
 
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity != null) {
-            Toolbar toolbar = activity.findViewById(R.id.toolbar);
-            if (toolbar != null) {
-                toolbar.setTitle("Notifications");
-            }
-        }
 
         setupNotificationRecycler();
         sendRequest();

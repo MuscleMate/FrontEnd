@@ -7,6 +7,7 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.musclematefront.R;
 import com.example.musclematefront.databinding.ActivitySocialBinding;
@@ -43,9 +44,6 @@ public class SocialActivity extends AppCompatActivity {
                            break;
                        case 3:
                            tab.setText("Challenges");
-                           break;
-                       case 4:
-                           tab.setText("Tournaments");
                            break;
                    }
                }).attach();

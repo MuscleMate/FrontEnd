@@ -80,6 +80,7 @@ public class WorkoutPreviewActivity extends AppCompatActivity {
                     Log.d("asd", "onResponse: " + response.toString());
                     if (status.equals("OK") || statusCode == 200 || statusCode == 201) {
                         workout = parseWorkout(response);
+                        Log.e("123",workout.getExercises().toString());
                         setupWorkoutData();
                         exerciseList = workout.getExercises();
                         exerciseSetAdapter.setExerciseList(exerciseList);
@@ -199,11 +200,17 @@ public class WorkoutPreviewActivity extends AppCompatActivity {
         binding.bottomNavigation.setSelectedItemId(R.id.action_workouts);
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.action_home) {
-                Intent intent = new Intent(WorkoutPreviewActivity.this, NotificationsActivity.class);
+                Intent intent = new Intent(WorkoutPreviewActivity.this, HomeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             } else if (item.getItemId() == R.id.action_workouts) {
+            }
+            else if(item.getItemId()==R.id.action_add){
+                Intent intent = new Intent(WorkoutPreviewActivity.this, AddWorkoutActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
             // Handle other actions
             else if (item.getItemId() == R.id.action_profile) {

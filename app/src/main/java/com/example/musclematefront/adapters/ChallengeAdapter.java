@@ -51,7 +51,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.View
         TextView participantsTextView = cardView.findViewById(R.id.participantsTextView);
         TextView workoutTitleTextView = cardView.findViewById(R.id.workoutTitleTextView);
         TextView byTextView = cardView.findViewById(R.id.byTextView);
-        hoursLeftTextView.setText(String.valueOf(challengesList.get(position).getDuration()));
+        hoursLeftTextView.setText(String.valueOf(challengesList.get(position).getDuration())+ " hours left");
         levelTextView.setText(challengesList.get(position).getDifficulty());
         workoutTitleTextView.setText(challengesList.get(position).getTitle());
     }

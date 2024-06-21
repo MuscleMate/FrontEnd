@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,8 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         CardView cardView = holder.cardView;
         TextView userNameTextView = cardView.findViewById(R.id.hoursLeftTextView);
         TextView levelTextView = cardView.findViewById(R.id.xpTextView);
+        Button button = cardView.findViewById(R.id.friendsButton);
+        button.setVisibility(View.GONE);
         userNameTextView.setText(friendsList.get(position).getFirstName());
         levelTextView.setText("lvl "+String.valueOf(friendsList.get(position).getRp().getLevel()));
     }

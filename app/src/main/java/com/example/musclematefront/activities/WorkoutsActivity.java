@@ -136,6 +136,7 @@ public class WorkoutsActivity extends AppCompatActivity {
                     Log.d("asd", "onResponse: "+response.toString());
                     if (status.equals("OK")||statusCode==200||statusCode==201) {
                         workoutList = parseWorkouts(response);
+                        Log.e("123",workoutList.toString());
                         if(workoutList.isEmpty()) setupClickHereTextView();
                       else{
                            workoutsAdapter.setWorkoutList(workoutList);
@@ -175,5 +176,10 @@ public class WorkoutsActivity extends AppCompatActivity {
         workoutsAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        sendRequest();
+    }
 }

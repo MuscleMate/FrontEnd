@@ -47,7 +47,6 @@ public class NotificationParser {
     private static Date parseDate(String dateString) {
         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
         SimpleDateFormat outputFormat = new SimpleDateFormat("EEE d MMM HH:mm", Locale.US);
-        outputFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 
         try {
             Date date = inputFormat.parse(dateString);

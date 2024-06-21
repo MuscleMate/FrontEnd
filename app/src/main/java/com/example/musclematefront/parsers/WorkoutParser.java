@@ -24,7 +24,7 @@ public class WorkoutParser {
         try {
             workout.set_id(jsonResponse.getString("_id"));
             workout.setTitle(jsonResponse.getString("title"));
-            workout.setDescription(jsonResponse.getString("description"));
+            workout.setDescription("");
             workout.setOngoing(jsonResponse.getBoolean("ongoing"));
             workout.setExercises(parseExercise(jsonResponse.getJSONArray("exercises")));
             workout.setUser(new HashMap<String, String>() {{

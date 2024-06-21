@@ -40,13 +40,6 @@ public class ChallengesCompletedFragment extends Fragment {
         binding = FragmentCompletedChallengesBinding.inflate(inflater, container, false);
         View rootView = binding.getRoot();
 
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity != null) {
-            Toolbar toolbar = activity.findViewById(R.id.toolbar);
-            if (toolbar != null) {
-                toolbar.setTitle("Challenges");
-            }
-        }
         setupChallengesRecycler();
         sendRequestChallenge();
         return rootView;

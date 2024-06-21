@@ -65,7 +65,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/exerciseRecyclerView"
                 android:layout_width="350dp"
-                android:layout_height="84dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -255,7 +255,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dateButton"
-                app:np_max="3"
+                app:np_max="12"
                 app:np_min="1"
                 app:np_value="1" />
 
@@ -311,7 +311,7 @@
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toEndOf="@+id/numberPickerTime1"
                 app:layout_constraintTop_toBottomOf="@+id/timeButton"
-                app:np_max="24"
+                app:np_max="59"
                 app:np_min="0"
                 app:np_value="0" />
 
@@ -339,8 +339,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/numberPickerTime3"
                 app:layout_constraintTop_toBottomOf="@+id/timeButton"
-                app:np_max="24"
-                app:np_min="1"
+                app:np_max="59"
+                app:np_min="0"
                 app:np_value="0" />
 
             <EditText
@@ -369,7 +369,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/exerciseSearchRecyclerView"
                 android:layout_width="350dp"
-                android:layout_height="228dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.508"

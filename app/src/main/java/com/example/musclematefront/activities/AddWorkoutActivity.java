@@ -97,10 +97,12 @@ public class AddWorkoutActivity extends AppCompatActivity {
                         String status = response.optString("status");
                         Log.d("asd", "onResponse: "+response.toString());
                         if (status.equals("OK")||statusCode==200||statusCode==201) {
+                            finish();
                         } else {
                             // Handle other cases if needed
                             // For example, show an error message
                             Toast.makeText(AddWorkoutActivity.this, "Response not OK", Toast.LENGTH_SHORT).show();
+
                         }
                     }catch (Exception e) {
                         e.printStackTrace();
