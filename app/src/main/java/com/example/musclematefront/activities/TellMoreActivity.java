@@ -56,7 +56,7 @@ public class TellMoreActivity extends AppCompatActivity {
                             Toast.makeText(TellMoreActivity.this, status, Toast.LENGTH_SHORT).show();
 
                                 // Start TellMoreActivity
-                                Intent intent = new Intent(TellMoreActivity.this, HomeActivity.class);
+                                Intent intent = new Intent(TellMoreActivity.this, MainActivity.class);
                                 Toast.makeText(TellMoreActivity.this, "logIN", Toast.LENGTH_SHORT).show();
                                 startActivity(intent);
 
