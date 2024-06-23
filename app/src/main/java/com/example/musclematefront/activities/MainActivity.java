@@ -122,6 +122,8 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     if (!(binding.editTextPassword.getText().toString().equals(binding.editTextPassword2.getText().toString()))) {
                         Toast.makeText(MainActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    }else if(binding.editTextPassword.getText().length()<6){
+                        Toast.makeText(MainActivity.this, "Password to short (minimum 6 letters)", Toast.LENGTH_SHORT).show();
                     }else{
                         binding.editTextPassword2.setVisibility(View.GONE);
                         Intent intent = new Intent(MainActivity.this, TellMoreActivity.class);

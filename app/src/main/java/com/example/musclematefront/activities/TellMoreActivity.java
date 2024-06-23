@@ -2,6 +2,7 @@ package com.example.musclematefront.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Toast;
@@ -49,17 +50,16 @@ public class TellMoreActivity extends AppCompatActivity {
                         int statusCode = responsePair.first;
                         JSONObject response = responsePair.second;
                         try{
+                            Log.e("123","jd");
                             String status = response.optString("status");
+                            Log.e("123",status);
+                            Toast.makeText(TellMoreActivity.this, status, Toast.LENGTH_SHORT).show();
 
-                            if (status.equals("OK")) {
                                 // Start TellMoreActivity
                                 Intent intent = new Intent(TellMoreActivity.this, HomeActivity.class);
+                                Toast.makeText(TellMoreActivity.this, "logIN", Toast.LENGTH_SHORT).show();
                                 startActivity(intent);
-                            } else {
-                                // Handle other cases if needed
-                                // For example, show an error message
-                                Toast.makeText(TellMoreActivity.this, "Response not OK", Toast.LENGTH_SHORT).show();
-                            }
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
