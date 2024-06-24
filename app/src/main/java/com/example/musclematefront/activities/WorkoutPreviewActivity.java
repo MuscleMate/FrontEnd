@@ -81,8 +81,8 @@ public class WorkoutPreviewActivity extends AppCompatActivity {
                     if (status.equals("OK") || statusCode == 200 || statusCode == 201) {
                         workout = parseWorkout(response);
                         Log.e("123",workout.getExercises().toString());
-                        setupWorkoutData();
                         exerciseList = workout.getExercises();
+                        setupWorkoutData();
                         exerciseSetAdapter.setExerciseList(exerciseList);
                         exerciseSetAdapter.notifyDataSetChanged();
                         equipmentList = workout.getEquipment();
@@ -129,7 +129,7 @@ public class WorkoutPreviewActivity extends AppCompatActivity {
         binding.workoutTitle.setText(workout.getTitle());
         binding.timeTextView.setText(workout.getTime());
         binding.durationTextView.setText(String.valueOf(workout.getDuration()) + " mins");
-        binding.amountTextView.setText(String.format("%d exercises", workout.getExerciseAmount()));
+        binding.amountTextView.setText(String.format("%d exercises", exerciseList.size()));
         if (workout.isFavourite()) {
             binding.isFavImage.setImageResource(R.drawable.fav);
         } else {
